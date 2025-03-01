@@ -2,7 +2,7 @@
 #define DIR 2
 #define POTENTIOMETER A0
 const float MAX_DUTY_CYCLE = 0.15;
-// const float LIMIT = 
+// const float LIMIT = 1000;
 
 float time_low = 3;
 float time_high;
@@ -11,10 +11,8 @@ float last_time = 0;
 float current_time = 0;
 float v_out = HIGH;
 
-float position = 0;
+float position = 70.61;
 float potentiometer_value;
-float time = 0;
-float dt = 0;
 
 float current_time_pot = 0;
 float last_time_pot = 0;
@@ -34,7 +32,6 @@ void setup() {
 
 void loop() {
   read_potentiometer();
-  // update_position();
   writePercent(output);
 }
 
@@ -61,17 +58,14 @@ void read_potentiometer() {
   }
 }
 
-void update_position() {
-  dt = millis() - time;
-  position += (output * dt);
-  time = millis();
-}
-
 void writePercent(float value) {
   value = constrain(value, -1, 1);
 
-  // if (abs(position) > LIMIT) 
+  // if (position <= -LIMIT && value < 0) {
   //   value = 0;
+  // } else if (position >= LIMIT && value > 0) {
+  //   value = 0;
+  // }
     
   if (value < 0) { 
     digitalWrite(DIR, LOW); // spin CCW for negative values
@@ -88,7 +82,7 @@ void writePercent(float value) {
       digitalWrite(PUL, v_out);
       last_time = current_time;
       if (v_out == LOW)
-        position += value / 100;
+        position += (value * (time_high+time_low)) / 100 ;
     }
   } else {
     digitalWrite(PUL, HIGH);
