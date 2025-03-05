@@ -1,17 +1,16 @@
 #define PUL 3
 #define DIR 2
 #define POTENTIOMETER A0
-const float MAX_DUTY_CYCLE = 0.3;
+const float MAX_PERIOD = 5000;
+const float MIN_PERIOD = 225;
 // const float LIMIT = 1000;
 
-float time_low = 3;
-float time_high;
-float timer;
+float period = MAX_PERIOD;
 float last_time = 0;
 float current_time = 0;
 float v_out = HIGH;
 
-float position = 70.61;
+float position = 170;
 float potentiometer_value;
 
 float current_time_pot = 0;
@@ -41,7 +40,7 @@ void read_potentiometer() {
   if (current_time_pot - last_time_pot >= read_interval) {
     potentiometer_value = analogRead(POTENTIOMETER);
     last_time_pot = current_time_pot;
-    Serial.println(output);
+    Serial.println(position);
   }
   
   if (potentiometer_value < 341) // lowest third of the potentiometer's range (0-340)
@@ -74,15 +73,14 @@ void writePercent(float value) {
   }
 
   if (value != 0) {
-    time_high = time_low / (abs(value) * MAX_DUTY_CYCLE);
+    period = MAX_PERIOD-((MAX_PERIOD-MIN_PERIOD) * abs(value));
     current_time = micros();
-    timer = (v_out == LOW) ? time_low : time_high;
-    if ((current_time - last_time) >= timer) { 
+    if ((current_time - last_time) >= period) { 
       v_out = !v_out;
       digitalWrite(PUL, v_out);
       last_time = current_time;
       if (v_out == LOW)
-        position += (value * (time_high+time_low)) / 100 ;
+        position += (value > 0 ? 1 : -1);
     }
   } else {
     digitalWrite(PUL, HIGH);
