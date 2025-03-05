@@ -1,6 +1,7 @@
 #define PUL 3
 #define DIR 2
 #define POTENTIOMETER A0
+#define SENSOR A5
 const float MAX_PERIOD = 5000;
 const float MIN_PERIOD = 225;
 // const float LIMIT = 1000;
@@ -12,6 +13,8 @@ float v_out = HIGH;
 
 float position = 170;
 float potentiometer_value;
+
+float absolute_position;
 
 float current_time_pot = 0;
 float last_time_pot = 0;
@@ -30,17 +33,18 @@ void setup() {
 }
 
 void loop() {
-  read_potentiometer();
+  read();
   writePercent(output);
 }
 
-void read_potentiometer() {
+void read() {
   current_time_pot = micros();
 
   if (current_time_pot - last_time_pot >= read_interval) {
     potentiometer_value = analogRead(POTENTIOMETER);
+    absolute_position = analogRead(SENSOR);
     last_time_pot = current_time_pot;
-    Serial.println(position);
+    Serial.println(absolute_position);
   }
   
   if (potentiometer_value < 341) // lowest third of the potentiometer's range (0-340)
