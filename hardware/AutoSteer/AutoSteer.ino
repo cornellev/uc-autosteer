@@ -1,7 +1,7 @@
 #define PUL 3
 #define DIR 2
 #define POTENTIOMETER A0
-const float MAX_DUTY_CYCLE = 0.15;
+const float MAX_DUTY_CYCLE = 0.3;
 // const float LIMIT = 1000;
 
 float time_low = 3;
@@ -41,7 +41,7 @@ void read_potentiometer() {
   if (current_time_pot - last_time_pot >= read_interval) {
     potentiometer_value = analogRead(POTENTIOMETER);
     last_time_pot = current_time_pot;
-    Serial.println(position);
+    Serial.println(output);
   }
   
   if (potentiometer_value < 341) // lowest third of the potentiometer's range (0-340)
