@@ -4,7 +4,11 @@
 #define SENSOR A5
 const float MAX_PERIOD = 5000;
 const float MIN_PERIOD = 225;
-// const float LIMIT = 1000;
+const float MIN_POSITION = 130;
+const float MAX_POSITION = 450;
+
+float goal_position;
+const float kP = 0.03;
 
 float period = MAX_PERIOD;
 float last_time = 0;
@@ -33,42 +37,52 @@ void setup() {
 }
 
 void loop() {
-  read();
+  goal_position = read();
+  output = calculate();
   writePercent(output);
 }
 
-void read() {
+float read() {
   current_time_pot = micros();
 
   if (current_time_pot - last_time_pot >= read_interval) {
     potentiometer_value = analogRead(POTENTIOMETER);
     absolute_position = analogRead(SENSOR);
     last_time_pot = current_time_pot;
-    Serial.println(absolute_position);
+    // Serial.println(absolute_position);
+    Serial.println(output);
   }
   
-  if (potentiometer_value < 341) // lowest third of the potentiometer's range (0-340)
-  {                  
-    output = -( 1 - potentiometer_value / 340 ); // normalize to percent, negative for CCW
-  }
-  else if (potentiometer_value < 682) // middle third of potentiometer's range (341-681)
-  {
-    output = 0; // no movement when in center
-  }
-  else  // upper third of potentiometer"s range (682-1023)
-  {
-    output = (potentiometer_value-683) / 340; // normalize to percent, positive for CW
-  }
+  // velocity control
+  // if (potentiometer_value < 341) // lowest third of the potentiometer's range (0-340)
+  // {                  
+  //   return = -( 1 - potentiometer_value / 340 ); // normalize to percent, negative for CCW
+  // }
+  // else if (potentiometer_value < 682) // middle third of potentiometer's range (341-681)
+  // {
+  //   return = 0; // no movement when in center
+  // }
+  // else  // upper third of potentiometer"s range (682-1023)
+  // {
+  //   return = (potentiometer_value-683) / 340; // normalize to percent, positive for CW
+  // }
+
+  // positional control
+  return map(potentiometer_value, 0, 1023, 130, 450);
+}
+
+float calculate() {
+  return kP * (goal_position - absolute_position);
 }
 
 void writePercent(float value) {
   value = constrain(value, -1, 1);
 
-  // if (position <= -LIMIT && value < 0) {
-  //   value = 0;
-  // } else if (position >= LIMIT && value > 0) {
-  //   value = 0;
-  // }
+  if (absolute_position <= MIN_POSITION && value < 0) {
+    value = 0;
+  } else if (absolute_position >= MAX_POSITION && value > 0) {
+    value = 0;
+  }
     
   if (value < 0) { 
     digitalWrite(DIR, LOW); // spin CCW for negative values
@@ -76,7 +90,7 @@ void writePercent(float value) {
     digitalWrite(DIR, HIGH); // spin CW for positive values
   }
 
-  if (value != 0) {
+  if (abs(value) > 0.8) {
     period = MAX_PERIOD-((MAX_PERIOD-MIN_PERIOD) * abs(value));
     current_time = micros();
     if ((current_time - last_time) >= period) { 
