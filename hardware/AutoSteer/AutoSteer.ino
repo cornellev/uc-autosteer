@@ -7,8 +7,8 @@ const float MIN_PERIOD = 225;
 const float MIN_POSITION = 130;
 const float MAX_POSITION = 450;
 
-const float MIN_STEERING_ANGLE = -.35;
-const float MAX_STEERING_ANGLE = .35;
+const float MIN_STEERING_ANGLE = -0.35;
+const float MAX_STEERING_ANGLE = 0.35;
 
 float goal_position;
 const float kP = 0.03;
@@ -56,19 +56,21 @@ float read() {
         last_time_pot = current_time_pot;
         // Serial.println(absolute_position);
         // Serial.println(output);
-    }
 
-    if (Serial.available() > 0) {
-        // Read the incoming data as a string
-        String received_data = Serial.readStringUntil('\n');
-        parseMessage(received_data);
-    }
+        if (Serial.available() > 0) {
+          // Read the incoming data as a string
+          String received_data = Serial.readStringUntil('\n');
+          parseMessage(received_data);
+        }
 
-    Serial.print(current_time_pot);        // time
-    Serial.print(" ");
-    Serial.print(0, 4);                    // vel
-    Serial.print(" ");
-    Serial.println(absolute_position, 4);  // steer TODO: FIX
+        Serial.print(current_time_pot);        // time
+        Serial.print(" ");
+        Serial.print(last_target, 4);                    // vel
+        Serial.print(" ");
+        Serial.print(absolute_position, 4);  // steer TODO: FIX
+        Serial.print("\n");
+
+    }
 
     // velocity control
     // if (potentiometer_value < 341) // lowest third of the potentiometer's range (0-340)
@@ -86,6 +88,7 @@ float read() {
 
     // positional control
     // return map(potentiometer_value, 0, 1023, 130, 450);
+
     return last_target;
 }
 
@@ -101,9 +104,19 @@ void parseMessage(String received_data) {
     if (first_space > 0 && second_space > 0) {
         String angle_str = received_data.substring(first_space + 1, second_space);
 
+        // Serial.print("New message: \n");
+        // Serial.print(angle_str);
+        // Serial.print("\n");
+        // Serial.print(angle_str.toFloat());
+        // Serial.print("\n");
+
+        float parsed = angle_str.toFloat();
+
+        parsed = constrain(parsed, MIN_STEERING_ANGLE, MAX_STEERING_ANGLE);
+        last_target = (parsed - MIN_STEERING_ANGLE) * (MAX_POSITION - MIN_POSITION) / (MAX_STEERING_ANGLE - MIN_STEERING_ANGLE) + MIN_POSITION;
+
         // Convert to float
-        last_target = map(angle_str.toFloat(), MIN_STEERING_ANGLE, MAX_STEERING_ANGLE, MIN_POSITION,
-            MAX_POSITION);
+        // last_target = map(angle_str.toFloat(), MIN_STEERING_ANGLE, MAX_STEERING_ANGLE, MIN_POSITION, MAX_POSITION);
     }
 }
 
