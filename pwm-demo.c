@@ -31,7 +31,13 @@
 #define PWM_OUT_A 16
 #define PWM_OUT_B 17
 
-#define MAX_DUTY_CYCLE .4f
+#define BRAKE_A 18
+#define ENABLE_A 19
+
+#define BRAKE_B 13
+#define ENABLE_B 12
+
+#define MAX_DUTY_CYCLE 1.0f
 
 // One PWM slice corresponds to both GPIO pins
 uint slice_num = 0;
@@ -85,6 +91,27 @@ int main()
     adc_init();
     adc_gpio_init(26);
     adc_select_input(0);
+
+    // GPIO Switch On Enable and Brake for both channels
+    gpio_init(BRAKE_A);
+    gpio_init(ENABLE_A);
+    gpio_init(BRAKE_B);
+    gpio_init(ENABLE_B);
+
+    gpio_set_dir(BRAKE_A, GPIO_OUT);
+    gpio_set_dir(ENABLE_A, GPIO_OUT);
+    gpio_set_dir(BRAKE_B, GPIO_OUT);
+    gpio_set_dir(ENABLE_B, GPIO_OUT);
+
+    gpio_put(BRAKE_A, 1);
+    gpio_put(ENABLE_A, 1);
+    gpio_put(BRAKE_B, 1);
+    gpio_put(ENABLE_B, 1);
+
+    // LED
+    gpio_init(25);
+    gpio_set_dir(25, GPIO_OUT);
+    gpio_put(25, 1);
 
     gpio_set_function(PWM_OUT_A, GPIO_FUNC_PWM);
     gpio_set_function(PWM_OUT_B, GPIO_FUNC_PWM);
