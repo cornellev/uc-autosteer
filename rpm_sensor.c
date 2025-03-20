@@ -16,9 +16,9 @@
 // RPM SENSOR CONFIG
 #define LEFT_SENSOR_PIN 9
 #define RIGHT_SENSOR_PIN 8
-#define M_PER_TICK 0.0243         // TODO: Adjust for actual wheel velocity
-#define VELOCITY_TIMEOUT_US 50000 // 50ms timeout to reset velocity
-#define FILTER_SIZE 5             // Number of samples for rolling average
+#define M_PER_TICK 0.0243         // TODO: Empirically tune
+#define VELOCITY_TIMEOUT_US 50000 // 50ms timeout to reset velocity to 0 (to account for lack of interrupt)
+#define FILTER_SIZE 10            // Number of samples for rolling average
 
 // 5 kHz frequency
 #define WRAPVAL 5000
@@ -65,7 +65,7 @@ volatile uint32_t last_time_micro = 0;
 
 float min_scaling_vel = 1.0;
 float max_scaling_vel = 5.0;
-int min_duty_cycle = 1000;
+int min_duty_cycle = 2000;
 
 float rolling_average(float *buffer, int size)
 {
@@ -125,9 +125,9 @@ void on_pwm_wrap()
     pwm_clear_irq(slice_num);
 
     // Get current time
-    uint32_t current_time = time_us_32();
-    float delta_time_s = ((float)(current_time - last_time_micro)) / 1e6;
-    last_time_micro = current_time;
+    uint32_t current_time_micro = time_us_32();
+    float delta_time_s = ((float)(current_time_micro - last_time_micro)) / 1e6;
+    last_time_micro = current_time_micro;
 
     float max_control = last_throttle + MAX_THROTTLE_CHANGE_PER_SECOND_UP * delta_time_s;
     float min_control = last_throttle - MAX_THROTTLE_CHANGE_PER_SECOND_DOWN * delta_time_s;
