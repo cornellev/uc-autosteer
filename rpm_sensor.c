@@ -38,7 +38,7 @@
 
 #define MAX_DUTY_CYCLE 1.0f
 
-#define MAX_THROTTLE_CHANGE_PER_SECOND 1.0f
+#define MAX_THROTTLE_CHANGE_PER_SECOND .3f
 
 // ENCODER VARS
 volatile uint32_t last_left_time = 0;
@@ -57,6 +57,7 @@ uint slice_num = 1;
 
 volatile uint16_t last_control = 0;
 volatile uint16_t control = 0;
+volatile uint32_t last_time_millis = 0;
 
 float rolling_average(float *buffer, int size)
 {
@@ -114,6 +115,24 @@ void on_pwm_wrap()
 {
     // Clear the interrupt flag that brought us here
     pwm_clear_irq(slice_num);
+
+    // Get current time
+    uint32_t current_time = time_us_32();
+
+    float delta_time_s = (current_time - last_time_millis) / 1e6;
+
+    // Limit change in throttle
+    if (abs(control - last_control) > MAX_THROTTLE_CHANGE_PER_SECOND * delta_time_s)
+    {
+        if (control > last_control)
+        {
+            control = last_control + MAX_THROTTLE_CHANGE_PER_SECOND * delta_time_s;
+        }
+        else
+        {
+            control = last_control - MAX_THROTTLE_CHANGE_PER_SECOND * delta_time_s;
+        }
+    }
 
     // Update duty cycle if control input changed
     if (control != last_control)
