@@ -14,9 +14,9 @@
 #include "pt_cornell_rp2040_v1_3.h"
 
 // RPM SENSOR CONFIG
-#define LEFT_SENSOR_PIN 8
-#define RIGHT_SENSOR_PIN 9
-#define M_PER_TICK 0.01           // TODO: Adjust for actual wheel velocity
+#define LEFT_SENSOR_PIN 9
+#define RIGHT_SENSOR_PIN 8
+#define M_PER_TICK 0.0243         // TODO: Adjust for actual wheel velocity
 #define VELOCITY_TIMEOUT_US 50000 // 50ms timeout to reset velocity
 #define FILTER_SIZE 5             // Number of samples for rolling average
 
@@ -38,7 +38,8 @@
 
 #define MAX_DUTY_CYCLE 1.0f
 
-#define MAX_THROTTLE_CHANGE_PER_SECOND .3f
+#define MAX_THROTTLE_CHANGE_PER_SECOND_UP 6.0f
+#define MAX_THROTTLE_CHANGE_PER_SECOND_DOWN 12.0f
 
 // ENCODER VARS
 volatile uint32_t last_left_time = 0;
@@ -55,9 +56,16 @@ int left_index = 0, right_index = 0;
 // PWM VARS
 uint slice_num = 1;
 
+volatile float last_throttle = 0;
+volatile float throttle = 0;
+
 volatile uint16_t last_control = 0;
 volatile uint16_t control = 0;
-volatile uint32_t last_time_millis = 0;
+volatile uint32_t last_time_micro = 0;
+
+float min_scaling_vel = 1.0;
+float max_scaling_vel = 5.0;
+int min_duty_cycle = 1000;
 
 float rolling_average(float *buffer, int size)
 {
@@ -118,30 +126,52 @@ void on_pwm_wrap()
 
     // Get current time
     uint32_t current_time = time_us_32();
+    float delta_time_s = ((float)(current_time - last_time_micro)) / 1e6;
+    last_time_micro = current_time;
 
-    float delta_time_s = (current_time - last_time_millis) / 1e6;
+    float max_control = last_throttle + MAX_THROTTLE_CHANGE_PER_SECOND_UP * delta_time_s;
+    float min_control = last_throttle - MAX_THROTTLE_CHANGE_PER_SECOND_DOWN * delta_time_s;
 
-    // Limit change in throttle
-    if (abs(control - last_control) > MAX_THROTTLE_CHANGE_PER_SECOND * delta_time_s)
+    if (max_control > 1.0)
     {
-        if (control > last_control)
-        {
-            control = last_control + MAX_THROTTLE_CHANGE_PER_SECOND * delta_time_s;
-        }
-        else
-        {
-            control = last_control - MAX_THROTTLE_CHANGE_PER_SECOND * delta_time_s;
-        }
+        max_control = 1.0;
+    }
+
+    if (min_control < 0.0)
+    {
+        min_control = 0.0;
+    }
+
+    if (throttle > max_control)
+    {
+        throttle = max_control;
+    }
+
+    if (throttle < min_control)
+    {
+        throttle = min_control;
+    }
+
+    last_throttle = throttle;
+
+    int multiplier = 4999;
+
+    if (right_velocity < min_scaling_vel)
+    {
+        multiplier = min_duty_cycle;
+    }
+    else if (right_velocity < max_scaling_vel)
+    {
+        float diff = right_velocity - min_scaling_vel;
+        float mult_diff = multiplier - min_duty_cycle;
+        multiplier = min_duty_cycle + (diff / (max_scaling_vel - min_scaling_vel)) * mult_diff;
     }
 
     // Update duty cycle if control input changed
-    if (control != last_control)
-    {
-        // Both channels correspond to one GPIO pin
-        pwm_set_chan_level(slice_num, PWM_CHAN_A, control);
-        pwm_set_chan_level(slice_num, PWM_CHAN_B, control);
-        last_control = control;
-    }
+    // Both channels correspond to one GPIO pin
+    control = (int)(throttle * multiplier);
+    pwm_set_chan_level(slice_num, PWM_CHAN_A, control);
+    pwm_set_chan_level(slice_num, PWM_CHAN_B, control);
 }
 
 static PT_THREAD(protothread_serial(struct pt *pt))
@@ -171,12 +201,12 @@ static PT_THREAD(protothread_serial(struct pt *pt))
 
         if (val < 1500) // Stop if too small value (safety)
         {
-            control = 0;
+            throttle = 0;
         }
         else
         {
-            // Map to maximum 40%
-            control = (int)((val - 1500) * (MAX_DUTY_CYCLE * 3));
+            // throttle = (val - 1500) * (3.0 / 5500.0);
+            throttle = (((val - 1500) * (MAX_DUTY_CYCLE * 3))) / 5500;
         }
     }
     PT_END(pt);
@@ -234,12 +264,12 @@ int main()
     gpio_init(LEFT_SENSOR_PIN);
     gpio_set_dir(LEFT_SENSOR_PIN, GPIO_IN);
     gpio_pull_up(LEFT_SENSOR_PIN);
-    gpio_set_irq_enabled_with_callback(LEFT_SENSOR_PIN, GPIO_IRQ_EDGE_FALL, true, &left_wheel_isr);
+    gpio_set_irq_enabled_with_callback(LEFT_SENSOR_PIN, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &left_wheel_isr);
 
     gpio_init(RIGHT_SENSOR_PIN);
     gpio_set_dir(RIGHT_SENSOR_PIN, GPIO_IN);
     gpio_pull_up(RIGHT_SENSOR_PIN);
-    gpio_set_irq_enabled_with_callback(RIGHT_SENSOR_PIN, GPIO_IRQ_EDGE_FALL, true, &right_wheel_isr);
+    gpio_set_irq_enabled_with_callback(RIGHT_SENSOR_PIN, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &right_wheel_isr);
 
     pt_add_thread(protothread_serial);
     pt_schedule_start;
