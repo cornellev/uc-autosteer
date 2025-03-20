@@ -29,7 +29,7 @@
 
 // GPIO output for PWM
 #define PWM_OUT_A 18
-#define PWM_OUT_B 19
+#define PWM_OUT_B 20
 
 #define BRAKE_A 16
 #define ENABLE_A 17
@@ -44,23 +44,51 @@
 #define MAX_THROTTLE_CHANGE_PER_SECOND 1.0f
 
 // One PWM slice corresponds to both GPIO pins
-uint slice_num = 1;
+uint slice_num_a = 1;
+uint slice_num_b = 2;
 
 volatile uint16_t last_control = 0;
 volatile uint16_t control = 0;
 
 // PWM interrupt service routine
+// void on_pwm_wrap()
+// {
+//     // Clear the interrupt flag that brought us here
+//     pwm_clear_irq(slice_num_a);
+//     pwm_clear_irq(slice_num_b);
+
+//     // Update duty cycle if control input changed
+//     if (control != last_control)
+//     {
+//         // Both channels correspond to one GPIO pin
+//         pwm_set_chan_level(slice_num_a, PWM_CHAN_A, control);
+//         pwm_set_chan_level(slice_num_b, PWM_CHAN_B, control);
+//         last_control = control;
+//     }
+// }
+
 void on_pwm_wrap()
 {
-    // Clear the interrupt flag that brought us here
-    pwm_clear_irq(slice_num);
+    // Check which PWM slice triggered the interrupt
+    uint32_t irq_status = pwm_hw->ints;
+
+    if (irq_status & (1 << slice_num_a))
+    {
+        pwm_clear_irq(slice_num_a);
+    }
+
+    if (irq_status & (1 << slice_num_b))
+    {
+        pwm_clear_irq(slice_num_b);
+    }
 
     // Update duty cycle if control input changed
     if (control != last_control)
     {
-        // Both channels correspond to one GPIO pin
-        pwm_set_chan_level(slice_num, PWM_CHAN_A, control);
-        pwm_set_chan_level(slice_num, PWM_CHAN_B, control);
+        pwm_set_chan_level(slice_num_a, PWM_CHAN_A, control);
+        pwm_set_chan_level(slice_num_a, PWM_CHAN_B, control);
+        pwm_set_chan_level(slice_num_b, PWM_CHAN_A, control);
+        pwm_set_chan_level(slice_num_b, PWM_CHAN_B, control);
         last_control = control;
     }
 }
@@ -121,19 +149,26 @@ int main()
     gpio_set_function(PWM_OUT_B, GPIO_FUNC_PWM);
 
     // Schedule PWM setting interrupt
-    pwm_clear_irq(slice_num);
-    pwm_set_irq_enabled(slice_num, true);
+    pwm_clear_irq(slice_num_a);
+    pwm_set_irq_enabled(slice_num_a, true);
+    pwm_clear_irq(slice_num_b);
+    pwm_set_irq_enabled(slice_num_b, true);
     irq_set_exclusive_handler(PWM_IRQ_WRAP, on_pwm_wrap);
     irq_set_enabled(PWM_IRQ_WRAP, true);
 
-    pwm_set_wrap(slice_num, WRAPVAL);
-    pwm_set_clkdiv(slice_num, CLKDIV);
+    pwm_set_wrap(slice_num_a, WRAPVAL);
+    pwm_set_clkdiv(slice_num_a, CLKDIV);
+    pwm_set_wrap(slice_num_b, WRAPVAL);
+    pwm_set_clkdiv(slice_num_b, CLKDIV);
 
-    pwm_set_chan_level(slice_num, PWM_CHAN_A, 0);
-    pwm_set_chan_level(slice_num, PWM_CHAN_B, 0);
+    pwm_set_chan_level(slice_num_a, PWM_CHAN_A, 0);
+    pwm_set_chan_level(slice_num_a, PWM_CHAN_B, 0);
+    pwm_set_chan_level(slice_num_b, PWM_CHAN_A, 0);
+    pwm_set_chan_level(slice_num_b, PWM_CHAN_B, 0);
 
     // Switch on PWM slice
-    pwm_set_mask_enabled((1u << slice_num));
+    pwm_set_mask_enabled((1u << slice_num_a));
+    pwm_set_mask_enabled((1u << slice_num_b));
 
     // start throttle thread
     pt_add_thread(protothread_serial);
