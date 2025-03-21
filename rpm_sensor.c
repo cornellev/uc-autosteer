@@ -38,8 +38,8 @@
 
 #define MAX_DUTY_CYCLE 1.0f
 
-#define MAX_THROTTLE_CHANGE_PER_SECOND_UP 6.0f
-#define MAX_THROTTLE_CHANGE_PER_SECOND_DOWN 12.0f
+#define MAX_THROTTLE_CHANGE_PER_SECOND_UP 4.0f
+#define MAX_THROTTLE_CHANGE_PER_SECOND_DOWN 8.0f
 
 // ENCODER VARS
 volatile uint32_t last_left_time = 0;
@@ -154,18 +154,18 @@ void on_pwm_wrap()
 
     last_throttle = throttle;
 
-    int multiplier = 4999;
+    int multiplier = 5400;
 
-    if (right_velocity < min_scaling_vel)
-    {
-        multiplier = min_duty_cycle;
-    }
-    else if (right_velocity < max_scaling_vel)
-    {
-        float diff = right_velocity - min_scaling_vel;
-        float mult_diff = multiplier - min_duty_cycle;
-        multiplier = min_duty_cycle + (diff / (max_scaling_vel - min_scaling_vel)) * mult_diff;
-    }
+    // if (right_velocity < min_scaling_vel)
+    // {
+    //     multiplier = min_duty_cycle;
+    // }
+    // else if (right_velocity < max_scaling_vel)
+    // {
+    //     float diff = right_velocity - min_scaling_vel;
+    //     float mult_diff = multiplier - min_duty_cycle;
+    //     multiplier = min_duty_cycle + (diff / (max_scaling_vel - min_scaling_vel)) * mult_diff;
+    // }
 
     // Update duty cycle if control input changed
     // Both channels correspond to one GPIO pin
