@@ -12,15 +12,16 @@
 #define WRAPVAL 5000
 #define BRAKE_CLKDIV_MAX 15.0f
 #define BRAKE_CLKDIV_MIN 7.5f
-#define STEER_CLKDIV_MAX 15.0f;
-#define STEER_CLKDIV_MIN 7.5f;
+#define STEER_CLKDIV_MAX 15.0f
+// #define STEER_CLKDIV_MIN 7.5f
+#define STEER_CLKDIV_MIN 12.0f
 
 #define brake_gear_ratio 13.5
 #define brake_max 800
 #define brake_min 0
-#define steer_max 800
-#define steer_min 0
-#define threshold 0.05
+#define steer_max 3400
+#define steer_min 1450
+#define threshold 0.08
 
 float BRAKE_CLKDIV = 7.5;
 float STEER_CLKDIV = 7.5;
@@ -63,16 +64,17 @@ void pwm_irq_handler() {
     pwm_clear_irq(steer_slice_num);
     pwm_clear_irq(brake_slice_num);
 
-    if (mask & (1u << steer_slice_num)) {
-      if (steer_output > threshold) {
-        steer_position++;
-      } else if (steer_output < -threshold) {
-        steer_position--;
-      }
-      
-      // adc_select_input(1); 
-      // steer_position = adc_read();
-    }
+    // if (mask & (1u << steer_slice_num)) {
+    //   if (steer_output > threshold) {
+    //     steer_position++;
+    //   } else if (steer_output < -threshold) {
+    //     steer_position--;
+    //   }
+    // }
+
+    
+    adc_select_input(1); 
+    steer_position = adc_read();
 
     if (mask & (1u << brake_slice_num)) {
       if (brake_output > threshold) {
@@ -120,6 +122,9 @@ void initialize() {
 
   // Start the channel
   pwm_set_mask_enabled((1u << brake_slice_num) | (1u << steer_slice_num));
+
+  adc_select_input(1); 
+  steer_position = adc_read();
 }
 
 float read() {
@@ -165,7 +170,7 @@ void writePercent(uint dir, uint pwm, float value) {
 }
 
 float calculate(float kP, int setpoint, int position) {
-  return kP * (setpoint - position);
+  return kP * (position - setpoint);
 }
 
 float map(float x, float in_min, float in_max, float out_min, float out_max) {
@@ -182,17 +187,33 @@ int main() {
         brake_position_scaled = brake_position / brake_gear_ratio;
         brake_setpoint = map(read(), 0, 4095, brake_min, brake_max);
         steer_setpoint = map(read(), 0, 4095, steer_min, steer_max);
+
+        steer_setpoint = (steer_setpoint > steer_max ? steer_max : steer_setpoint);
+        steer_setpoint = (steer_setpoint < steer_min ? steer_min : steer_setpoint);
+
         brake_output = calculate(brake_kP, brake_setpoint, brake_position_scaled);
         steer_output = calculate(steer_kP, steer_setpoint, steer_position);
-        writePercent(BRAKE_DIR, brake_slice_num, brake_output);
-        writePercent(STEER_DIR, steer_slice_num, steer_output);
+        // writePercent(BRAKE_DIR, brake_slice_num, brake_output);
 
         if (iters > 10000) {
-          printf("Steer Position: %d\tOutput Setpoint: %f\n", steer_position, steer_output);
+          printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
           iters = 0;
         } else {
           iters += 1;
         }
+
+        if (steer_position < 1450 && steer_output > 0) {
+          steer_output = 0;
+          // printf("ERROR\n");
+        } else if (steer_position > 3400 && steer_output < 0) {
+          steer_output = 0;
+          // printf("ERROR\n");
+        }
+
+
+        writePercent(STEER_DIR, steer_slice_num, steer_output);
+
+        
         // printf("Direction: %d\tOutput: %f\n", direction, output);
         // printf("Position: %d\tOutput: %f\n", brake_position, brake_output); 
         // sleep_ms(1000);
