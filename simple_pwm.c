@@ -7,6 +7,7 @@
 #include "hardware/pwm.h"
 #include "hardware/irq.h"
 #include "hardware/adc.h"
+#include "hardware/uart.h"
 #include "pt_cornell_rp2040_v1_3.h"
 
 #define WRAPVAL 5000
@@ -19,9 +20,9 @@
 #define brake_gear_ratio 13.5
 #define brake_max 800
 #define brake_min 0
-#define steer_max 3400
-#define steer_min 1450
-#define threshold 0.08
+#define steer_max 2100
+#define steer_min 850
+#define threshold 0.05
 
 float BRAKE_CLKDIV = 7.5;
 float STEER_CLKDIV = 7.5;
@@ -30,10 +31,12 @@ float STEER_CLKDIV = 7.5;
 #define BRAKE_DIR 13
 
 #define STEER_OUT 9
-#define STEER_DIR 3
+#define STEER_DIR 11
 
 #define POT_PIN 26
-#define SENSOR 16
+#define SENSOR 28
+#define LED 25
+
 #define brake_kP 0.008
 #define steer_kP 0.0003
 
@@ -55,8 +58,15 @@ float steer_output = 0;
 int steer_position = 0;
 int steer_setpoint = 0;
 
-// Mapping of PWM slices to GPIO pins (adjust based on your setup)
-uint slice;
+// serial communication
+#define UART_ID uart0
+#define BAUD_RATE 115200
+#define UART_TX_PIN 0
+#define UART_RX_PIN 1
+#define BUFFER_SIZE 32  // Max characters per float message
+char buffer[BUFFER_SIZE];
+int count = 0;
+float received_value = 0;
 
 void pwm_irq_handler() {
     uint32_t mask = pwm_get_irq_status_mask(); // Get active interrupt mask
@@ -72,8 +82,7 @@ void pwm_irq_handler() {
     //   }
     // }
 
-    
-    adc_select_input(1); 
+    adc_select_input(2); 
     steer_position = adc_read();
 
     if (mask & (1u << brake_slice_num)) {
@@ -123,8 +132,17 @@ void initialize() {
   // Start the channel
   pwm_set_mask_enabled((1u << brake_slice_num) | (1u << steer_slice_num));
 
-  adc_select_input(1); 
+  adc_select_input(2); 
   steer_position = adc_read();
+  // steer_position = 1475;
+
+  // serial communication
+  gpio_init(LED);
+  gpio_set_dir(LED, GPIO_OUT);
+  gpio_put(LED, 10);
+  uart_init(UART_ID, BAUD_RATE);
+  gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+  gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 }
 
 float read() {
@@ -170,52 +188,73 @@ void writePercent(uint dir, uint pwm, float value) {
 }
 
 float calculate(float kP, int setpoint, int position) {
-  return kP * (position - setpoint);
+  if (abs(setpoint - position) > 50)
+    return kP * (position - setpoint);
+  else
+    return 0;
 }
 
 float map(float x, float in_min, float in_max, float out_min, float out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-int main() {
-    initialize();    
+float constrain(float x, float min, float max) {
+  float value = x;
+  value = (value > max ? max : value);
+  value = (value < min ? min : value);
+  return value;
+}
 
-    int iters = 0;
-
-    while (true) {
-        brake_output = read();
-        brake_position_scaled = brake_position / brake_gear_ratio;
-        brake_setpoint = map(read(), 0, 4095, brake_min, brake_max);
-        steer_setpoint = map(read(), 0, 4095, steer_min, steer_max);
-
-        steer_setpoint = (steer_setpoint > steer_max ? steer_max : steer_setpoint);
-        steer_setpoint = (steer_setpoint < steer_min ? steer_min : steer_setpoint);
-
-        brake_output = calculate(brake_kP, brake_setpoint, brake_position_scaled);
-        steer_output = calculate(steer_kP, steer_setpoint, steer_position);
-        // writePercent(BRAKE_DIR, brake_slice_num, brake_output);
-
-        if (iters > 10000) {
-          printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
-          iters = 0;
-        } else {
-          iters += 1;
-        }
-
-        if (steer_position < 1450 && steer_output > 0) {
-          steer_output = 0;
-          // printf("ERROR\n");
-        } else if (steer_position > 3400 && steer_output < 0) {
-          steer_output = 0;
-          // printf("ERROR\n");
-        }
-
-
-        writePercent(STEER_DIR, steer_slice_num, steer_output);
-
-        
-        // printf("Direction: %d\tOutput: %f\n", direction, output);
-        // printf("Position: %d\tOutput: %f\n", brake_position, brake_output); 
-        // sleep_ms(1000);
+void serial_communication() {
+  // Read incoming characters
+  if (uart_is_readable(UART_ID)) {
+    char ch = uart_getc(UART_ID);
+    if (ch == '\n') {  // End of message
+        buffer[count] = '\0';  // Null-terminate the string
+        count = 0;
+        received_value = strtof(buffer, NULL);
+    } else if (count < BUFFER_SIZE - 1) {
+        buffer[count++] = ch;  // Store character in buffer
     }
+  }
+}
+
+int main() {
+  initialize();
+  int iters = 0;
+
+  while (true) {
+    // brake_output = read();
+    // brake_position_scaled = brake_position / brake_gear_ratio;
+    // brake_setpoint = map(read(), 0, 4095, brake_min, brake_max);
+    // steer_setpoint = map(read(), 0, 4095, steer_min, steer_max);
+    // brake_output = calculate(brake_kP, brake_setpoint, brake_position_scaled);
+    // writePercent(BRAKE_DIR, brake_slice_num, brake_output);
+    serial_communication();
+
+    if (received_value != NAN) {
+      steer_setpoint = map(received_value, -1.0, 1.0, steer_min, steer_max);
+    }
+
+    // steer_setpoint = 850;
+    steer_setpoint = constrain(steer_setpoint, steer_min, steer_max);    
+    steer_output = calculate(steer_kP, steer_setpoint, steer_position);
+    
+    if (iters > 10000) {
+      // printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
+      printf("Received Float: %.4f\tSteer Output: %.4f\n", received_value, steer_output);
+      // uart_puts(UART_ID, "Hello from Pico!\n");
+      iters = 0;
+    } else {
+      iters += 1;
+    }
+
+    if (steer_position < 850) {// && steer_output > 0) {
+      steer_output = 0;
+    } else if (steer_position > 2100) {//} && steer_output < 0) {
+      steer_output = 0;
+    }
+    
+    writePercent(STEER_DIR, steer_slice_num, steer_output);    
+  }
 }
