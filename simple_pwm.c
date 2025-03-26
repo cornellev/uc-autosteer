@@ -20,8 +20,8 @@
 #define brake_gear_ratio 13.5
 #define brake_max 800
 #define brake_min 0
-#define steer_max 2100
-#define steer_min 850
+#define steer_max 1840
+#define steer_min 1140
 #define threshold 0.05
 
 float BRAKE_CLKDIV = 7.5;
@@ -209,7 +209,7 @@ void serial_communication() {
   // Read incoming characters
   if (uart_is_readable(UART_ID)) {
     char ch = uart_getc(UART_ID);
-    if (ch == '\n') {  // End of message
+    if (ch == '\n') { // End of message
         buffer[count] = '\0';  // Null-terminate the string
         count = 0;
         received_value = strtof(buffer, NULL);
@@ -233,7 +233,7 @@ int main() {
     serial_communication();
 
     if (received_value != NAN) {
-      steer_setpoint = map(received_value, -1.0, 1.0, steer_min, steer_max);
+      steer_setpoint = steer_min + (steer_max - map(received_value, -1.0, 1.0, steer_min, steer_max));
     }
 
     // steer_setpoint = 850;
@@ -242,7 +242,7 @@ int main() {
     
     if (iters > 10000) {
       // printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
-      printf("Received Float: %.4f\tSteer Output: %.4f\n", received_value, steer_output);
+      printf("Received Float: %.4f\tSteer Position: %d\n", received_value, steer_position);
       // uart_puts(UART_ID, "Hello from Pico!\n");
       iters = 0;
     } else {
