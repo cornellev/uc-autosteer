@@ -27,8 +27,8 @@
 float BRAKE_CLKDIV = 7.5;
 float STEER_CLKDIV = 7.5;
 
-#define BRAKE_OUT 15
-#define BRAKE_DIR 13
+#define BRAKE_OUT 4
+#define BRAKE_DIR 2
 
 #define STEER_OUT 9
 #define STEER_DIR 11
@@ -67,6 +67,9 @@ int steer_setpoint = 0;
 char buffer[BUFFER_SIZE];
 int count = 0;
 float received_value = 0;
+
+float received_steering_angle = 0.0;
+float received_throttle = 0.0;
 
 void pwm_irq_handler() {
     uint32_t mask = pwm_get_irq_status_mask(); // Get active interrupt mask
@@ -184,7 +187,9 @@ void writePercent(uint dir, uint pwm, float value) {
   bool running = (value > threshold);
   float duty_cycle = (running ? 0.5 * WRAPVAL : 0);
   pwm_set_clkdiv(pwm, CLKDIV);
-  pwm_set_chan_level(pwm, PWM_CHAN_B, duty_cycle);   
+
+  int channel = (pwm == brake_slice_num ? 0 : 1);
+  pwm_set_chan_level(pwm, channel, duty_cycle);   
 }
 
 float calculate(float kP, int setpoint, int position) {
@@ -205,18 +210,31 @@ float constrain(float x, float min, float max) {
   return value;
 }
 
-void serial_communication() {
-  // Read incoming characters
-  if (uart_is_readable(UART_ID)) {
-    char ch = uart_getc(UART_ID);
-    if (ch == '\n') { // End of message
-        buffer[count] = '\0';  // Null-terminate the string
-        count = 0;
-        received_value = strtof(buffer, NULL);
-    } else if (count < BUFFER_SIZE - 1) {
-        buffer[count++] = ch;  // Store character in buffer
-    }
+bool serial_communication() {
+  uint8_t buffer[10];
+  int index = 0;
+  // Wait for start marker
+  while (uart_is_readable(UART_ID)) {
+      uint8_t byte = uart_getc(UART_ID);
+      if (byte == 0xAA) {
+          buffer[index++] = byte;
+          break;
+      }
   }
+  // Read expected packet size (8 bytes for floats + 2 markers)
+  while (index < 10) {
+      if (uart_is_readable(UART_ID)) {
+          buffer[index++] = uart_getc(UART_ID);
+      }
+  }
+  // Validate end marker
+  if (buffer[9] != 0x55) {
+      // printf("Invalid packet\n");
+      return false;
+  }
+  // Convert bytes to float values
+  memcpy(&received_steering_angle, &buffer[1], sizeof(float));
+  memcpy(&received_throttle, &buffer[5], sizeof(float));
 }
 
 int main() {
@@ -230,31 +248,33 @@ int main() {
     // steer_setpoint = map(read(), 0, 4095, steer_min, steer_max);
     // brake_output = calculate(brake_kP, brake_setpoint, brake_position_scaled);
     // writePercent(BRAKE_DIR, brake_slice_num, brake_output);
+    char meow[64];
+
     serial_communication();
 
-    if (received_value != NAN) {
-      steer_setpoint = steer_min + (steer_max - map(received_value, -1.0, 1.0, steer_min, steer_max));
-    }
+    printf("%f, %f", received_steering_angle, received_throttle);
 
+    steer_setpoint = steer_min + (steer_max - map(received_steering_angle, -1.0, 1.0, steer_min, steer_max));
     // steer_setpoint = 850;
     steer_setpoint = constrain(steer_setpoint, steer_min, steer_max);    
     steer_output = calculate(steer_kP, steer_setpoint, steer_position);
-    
-    if (iters > 10000) {
-      // printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
-      printf("Received Float: %.4f\tSteer Position: %d\n", received_value, steer_position);
-      // uart_puts(UART_ID, "Hello from Pico!\n");
-      iters = 0;
-    } else {
-      iters += 1;
-    }
-
     if (steer_position < 850) {// && steer_output > 0) {
       steer_output = 0;
     } else if (steer_position > 2100) {//} && steer_output < 0) {
       steer_output = 0;
     }
+    writePercent(STEER_DIR, steer_slice_num, steer_output); 
+
+    brake_output = received_throttle;
+    writePercent(BRAKE_DIR, brake_slice_num, brake_output);
     
-    writePercent(STEER_DIR, steer_slice_num, steer_output);    
+    if (iters > 1000) {
+      // printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
+      sprintf(meow, "Brake Output: %.4f\tReceived Throttle: %.4f\n", brake_output, received_throttle);
+      uart_puts(UART_ID, meow);
+      iters = 0;
+    } else {
+      iters += 1;
+    }
   }
 }
