@@ -35,5 +35,16 @@
     "raspberry-pi-pico.cmakeAutoConfigure": true,
     "raspberry-pi-pico.useCmakeTools": false,
     "raspberry-pi-pico.cmakePath": "${HOME}/.pico-sdk/cmake/v3.31.5/bin/cmake",
-    "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja"
+    "raspberry-pi-pico.ninjaPath": "${HOME}/.pico-sdk/ninja/v1.12.1/ninja",
+    "files.associations": {
+        "stdlib.h": "c",
+        "adc.h": "c",
+        "pt_cornell_rp2040_v1_3.h": "c",
+        "random": "c",
+        "limits": "c",
+        "multicore.h": "c",
+        "uart.h": "c",
+        "math.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
