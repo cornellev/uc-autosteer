@@ -1,4 +1,4 @@
-// Padded and checksummed version of: C:/Users/erica/Desktop/Mech Auto/Pico/simple_pwm/build/pico-sdk/src/rp2040/boot_stage2/bs2_default.bin
+// Padded and checksummed version of: C:/Users/erica/Desktop/Mech Auto/uc-autosteer/uc-autosteer/build/pico-sdk/src/rp2040/boot_stage2/bs2_default.bin
 
 .cpu cortex-m0plus
 .thumb
