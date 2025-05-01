@@ -15,7 +15,7 @@
 #define LED 25
 
 // GPIO we're using for PWM
-#define PWM_OUT 9
+#define PWM_OUT 21
 
 // Variable to hold PWM slice number
 uint slice_num ;

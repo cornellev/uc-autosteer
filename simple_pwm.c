@@ -19,6 +19,8 @@
 #define STEER_GPIO 21
 #define STEER_DIR_GPIO 20
 uint STEER_SLICE;
+const int STEER_MIN = 800;
+const int STEER_MAX = 2200;
 volatile int steer_position;
 
 #define BRAKE_GPIO 19
@@ -44,9 +46,6 @@ void on_pwm_wrap() {
     // Clear the interrupt flag that brought us here
     pwm_clear_irq(pwm_gpio_to_slice_num(STEER_GPIO));
     pwm_clear_irq(pwm_gpio_to_slice_num(BRAKE_GPIO));
-    
-    adc_select_input(2);
-    steer_position = adc_read();
 }
 
 void initialize() {
@@ -111,6 +110,10 @@ void writePercentSteer(float value) {
     float percent = constrain(value, -1, 1);
     int direction = (percent < 0); // set direction pin to 0 for positive / clockwise
     gpio_put(STEER_DIR_GPIO, direction);
+
+    if (steer_position > STEER_MAX || steer_position < STEER_MIN) {
+        percent = 0;
+    }
     percent = (percent > 0 ? percent : -percent);
     float CLKDIV = STEER_CLKDIV_MAX - (STEER_CLKDIV_MAX - STEER_CLKDIV_MIN) * percent;
     float level = (percent > 0.08) ? 0.5 * WRAPVAL : 0;
@@ -180,19 +183,21 @@ int main() {
     int iters = 0;
 
     while (true) {        
-        int steer_setpoint = (int) map(steer, -1.0, 1.0, 1140, 1840);
-        float steer_output = calculate(0.0001, 1500, steer_position);
+        adc_select_input(2);
+        steer_position = adc_read();
+
+        int steer_setpoint = (int) map(steer, -1.0, 1.0, STEER_MIN, STEER_MAX);
+        float steer_output = calculate(0.0003, steer_setpoint, steer_position);
         writePercentSteer(steer_output);
+        // writePercentSteer(0.5);
 
         writePercentBrake(brake);
 
-        if (iters > 10000) {
+        if (iters > 1000) {
             printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
-            // if (read_successfully) {
-            // printf("New Steer: %f, Brake: %f, Throttle: %f\n", steer, brake, throttle);
-            // }
-            // sprintf(meow, "Received Steering Angle: %.4f\tReceived Throttle: %.4f\n", received_steering_angle, received_throttle);
-            // uart_puts(UART_ID, meow);
+            // printf("Steer Position: %d\tSteer Output: %f\n", adc_read(), steer_output);
+            // printf("Steer Position: %d \n", adc_read());
+
             iters = 0;
         } else {
             iters += 1;
