@@ -195,8 +195,10 @@ Discarded input sections
  .text.map      0x00000000       0x38 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .text.writePercentThrottle
                 0x00000000      0x168 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
- .text.read     0x00000000       0x70 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+ .text.read     0x00000000       0x7c CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .text.step     0x00000000       0x18 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+ .text.setBrake
+                0x00000000      0x11c CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .bss.received_throttle
                 0x00000000        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .bss.received_steering_angle
@@ -2555,24 +2557,24 @@ LOAD C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/1
                 0x10000288       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
  .text.frame_dummy
                 0x100002b0       0x24 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
- .text.on_pwm_wrap
-                0x100002d4       0x18 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x100002d4                on_pwm_wrap
  .text.core1_entry
-                0x100002ec       0xb0 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x100002ec                core1_entry
+                0x100002d4       0xb0 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x100002d4                core1_entry
+ .text.on_pwm_wrap
+                0x10000384       0x68 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x10000384                on_pwm_wrap
  .text.initialize
-                0x1000039c      0x198 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x1000039c                initialize
+                0x100003ec      0x198 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x100003ec                initialize
  .text.writePercentSteer
-                0x10000534      0x188 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x10000534                writePercentSteer
+                0x10000584      0x120 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x10000584                writePercentSteer
  .text.writePercentBrake
-                0x100006bc       0xe4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x100006bc                writePercentBrake
+                0x100006a4       0xdc CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x100006a4                writePercentBrake
  .text.startup.main
-                0x100007a0      0x128 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x100007a0                main
+                0x10000780      0x148 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x10000780                main
  .text.gpio_set_function
                 0x100008c8       0x34 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
                 0x100008c8                gpio_set_function
@@ -3618,203 +3620,202 @@ LOAD C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/1
 .iplt           0x1000d518        0x0
  .iplt          0x1000d518        0x0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x1000d518     0x7b24
+.rodata         0x1000d518     0x7b3c
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
  .rodata.core1_entry.str1.4
-                0x1000d518      0x366 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x1000d518      0x382 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
                                   0x9 (size before relaxing)
  .rodata.main.str1.4
-                0x1000d87e        0xb CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x1000d89a       0x25 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .rodata.panic.str1.4
-                0x1000d87e       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+                0x1000d89a       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
  .rodata.spin_lock_claim_unused.str1.4
-                0x1000d87e       0x1b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+                0x1000d89a       0x1b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
  .rodata.user_irq_claim_unused.str1.4
-                0x1000d87e       0x1b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000d89a       0x1b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.timer_hardware_alarm_claim.str1.4
-                0x1000d87e       0x22 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+                0x1000d89a       0x22 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
  .rodata.hard_assertion_failure.str1.4
-                0x1000d87e        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+                0x1000d89a        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
  .rodata.__wrap_malloc.str1.4
-                0x1000d87e        0xe CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+                0x1000d89a        0xe CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
  .rodata.str1.4
-                0x1000d87e       0x44 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- *fill*         0x1000d87e        0x2 
+                0x1000d89a       0x44 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ *fill*         0x1000d89a        0x2 
  .rodata.__bi_84
-                0x1000d880        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d89c        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_78
-                0x1000d88c        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d8a8        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_60
-                0x1000d898        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d8b4        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_54
-                0x1000d8a4        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d8c0        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_48
-                0x1000d8b0        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d8cc        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_42
-                0x1000d8bc        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d8d8        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_34
-                0x1000d8c8        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d8e4        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata.__bi_26
-                0x1000d8d4        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x1000d8f0        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .rodata._ftoa.str1.4
-                0x1000d8e0       0x15 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x1000d8fc       0x15 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .rodata._vsnprintf
-                0x1000d8e0      0x19c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
- *fill*         0x1000da7c        0x4 
+                0x1000d8fc      0x19c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .rodata.pow10.0
-                0x1000da80       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x1000da98       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .rodata.__assert_func.str1.4
-                0x1000dad0       0x43 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+                0x1000dae8       0x43 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
  .rodata.crlf_str.0
-                0x1000dad0        0x2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000dae8        0x2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
  .rodata.str1.4
-                0x1000dad2       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- *fill*         0x1000dad2        0x2 
+                0x1000daea       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ *fill*         0x1000daea        0x2 
  .rodata.__bi_45.4
-                0x1000dad4        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000daec        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .rodata.__bi_49.5
-                0x1000dae0        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000daf8        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .rodata.__bi_50.6
-                0x1000dae8        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000db00        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .rodata._resetd_driver
-                0x1000daf0       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000db08       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .rodata.desc_ms_os_20
-                0x1000db10       0xa6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- *fill*         0x1000dbb6        0x2 
+                0x1000db28       0xa6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ *fill*         0x1000dbce        0x2 
  .rodata.desc_bos
-                0x1000dbb8       0x21 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x1000dbb8                desc_bos
+                0x1000dbd0       0x21 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000dbd0                desc_bos
  .rodata.str1.4
-                0x1000dbd9       0x13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- *fill*         0x1000dbd9        0x3 
+                0x1000dbf1       0x13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ *fill*         0x1000dbf1        0x3 
  .rodata.__bi_197.0
-                0x1000dbdc        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000dbf4        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .rodata.str1.4
-                0x1000dbe8       0x2a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x1000dc00       0x2a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_str
-                0x1000dbe8       0x18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x1000dc00       0x18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_cfg
-                0x1000dc00       0x54 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x1000dc18       0x54 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_device
-                0x1000dc54       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x1000dc6c       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.str1.4
-                0x1000dc66       0x14 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x1000dc7e       0x14 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .rodata.str1.4
-                0x1000dc66       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- *fill*         0x1000dc66        0x2 
+                0x1000dc7e       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ *fill*         0x1000dc7e        0x2 
  .rodata.tud_task_ext
-                0x1000dc68       0x8c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
- .rodata        0x1000dcf4       0x1c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x1000dc80       0x8c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+ .rodata        0x1000dd0c       0x1c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .rodata._usbd_driver
-                0x1000dd10       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x1000dd28       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .rodata.str1.4
-                0x1000dd50       0x18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+                0x1000dd68       0x18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
  .rodata.__bi_50
-                0x1000dd50        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+                0x1000dd68        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
  .rodata._ctype_
-                0x1000dd5c      0x101 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ctype_.o)
-                0x1000dd5c                _ctype_
+                0x1000dd74      0x101 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ctype_.o)
+                0x1000dd74                _ctype_
  .rodata.__ssvfscanf_r.str1.4
-                0x1000de5d        0x9 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
- *fill*         0x1000de5d        0x3 
+                0x1000de75        0x9 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
+ *fill*         0x1000de75        0x3 
  .rodata.__ssvfscanf_r
-                0x1000de60      0x3cc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
+                0x1000de78      0x3cc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
  .rodata.basefix.0
-                0x1000e22c       0x22 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
+                0x1000e244       0x22 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
  .rodata.str1.4
-                0x1000e24e       0x4c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-locale.o)
+                0x1000e266       0x4c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-locale.o)
  .rodata._strtod_l.str1.4
-                0x1000e24e       0x15 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
- *fill*         0x1000e24e        0x2 
+                0x1000e266       0x15 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
+ *fill*         0x1000e266        0x2 
  .rodata._strtod_l
-                0x1000e250       0xd0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
+                0x1000e268       0xd0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
  .rodata.fpinan.0
-                0x1000e320       0x14 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
- .rodata.fpi.1  0x1000e334       0x14 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
+                0x1000e338       0x14 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
+ .rodata.fpi.1  0x1000e34c       0x14 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
  .rodata.tinytens
-                0x1000e348       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
+                0x1000e360       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
  .rodata._mbrtowc_r.str1.4
-                0x1000e370        0x1 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mbrtowc.o)
+                0x1000e388        0x1 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mbrtowc.o)
  .rodata.__jp2uc
-                0x1000e370       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+                0x1000e388       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
  .rodata._jp2uc_l.str1.4
-                0x1000e390       0x12 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- .rodata.d02f4  0x1000e390     0x1a7c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- .rodata.b02cf  0x1000fe0c     0x172a C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- *fill*         0x10011536        0x2 
- .rodata.a8     0x10011538       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- .rodata.a7     0x10011578       0xa2 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- *fill*         0x1001161a        0x2 
- .rodata.a6     0x1001161c       0x70 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- .rodata.a3     0x1001168c       0x5b C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- *fill*         0x100116e7        0x1 
- .rodata.a2     0x100116e8       0xbc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- .rodata.a1     0x100117a4       0xbc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+                0x1000e3a8       0x12 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ .rodata.d02f4  0x1000e3a8     0x1a7c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ .rodata.b02cf  0x1000fe24     0x172a C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ *fill*         0x1001154e        0x2 
+ .rodata.a8     0x10011550       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ .rodata.a7     0x10011590       0xa2 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ *fill*         0x10011632        0x2 
+ .rodata.a6     0x10011634       0x70 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ .rodata.a3     0x100116a4       0x5b C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ *fill*         0x100116ff        0x1 
+ .rodata.a2     0x10011700       0xbc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ .rodata.a1     0x100117bc       0xbc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
  .rodata.__gethex.str1.4
-                0x10011860       0x79 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-gethex.o)
+                0x10011878       0x79 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-gethex.o)
  .rodata.__hexdig
-                0x10011860      0x100 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-gethex.o)
-                0x10011860                __hexdig
+                0x10011878      0x100 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-gethex.o)
+                0x10011878                __hexdig
  .rodata.__multadd.str1.4
-                0x10011960       0x6e C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
- .rodata.p05.0  0x10011960        0xc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
- *fill*         0x1001196c        0x4 
+                0x10011978       0x6e C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
+ .rodata.p05.0  0x10011978        0xc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
+ *fill*         0x10011984        0x4 
  .rodata.__mprec_bigtens
-                0x10011970       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
-                0x10011970                __mprec_bigtens
+                0x10011988       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
+                0x10011988                __mprec_bigtens
  .rodata.__mprec_tens
-                0x10011998       0xc8 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
-                0x10011998                __mprec_tens
+                0x100119b0       0xc8 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
+                0x100119b0                __mprec_tens
  .rodata.categories
-                0x10011a60     0x35dc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-categories.o)
-                0x1001503c                        . = ALIGN (0x4)
+                0x10011a78     0x35dc C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-categories.o)
+                0x10015054                        . = ALIGN (0x4)
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.flashdata*)))
-                0x1001503c                        . = ALIGN (0x4)
+                0x10015054                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x1001503c                        __exidx_start = .
+                0x10015054                        __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x1001503c                        __exidx_end = .
-                0x1001503c                        . = ALIGN (0x4)
-                0x1001503c                        __binary_info_start = .
+                0x10015054                        __exidx_end = .
+                0x10015054                        . = ALIGN (0x4)
+                0x10015054                        __binary_info_start = .
 
-.binary_info    0x1001503c       0x34
+.binary_info    0x10015054       0x34
  *(.binary_info.keep.*)
  .binary_info.keep.__bi_ptr84
-                0x1001503c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr78
-                0x10015040        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr60
-                0x10015044        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr54
-                0x10015048        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr48
-                0x1001504c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr42
-                0x10015050        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr34
                 0x10015054        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .binary_info.keep.__bi_ptr26
+ .binary_info.keep.__bi_ptr78
                 0x10015058        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr60
+                0x1001505c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr54
+                0x10015060        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr48
+                0x10015064        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr42
+                0x10015068        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr34
+                0x1001506c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .binary_info.keep.__bi_ptr26
+                0x10015070        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .binary_info.keep.__bi_ptr50
-                0x1001505c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+                0x10015074        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
  *(.binary_info.*)
  .binary_info.__bi_ptr50
-                0x10015060        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10015078        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .binary_info.__bi_ptr49
-                0x10015064        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1001507c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .binary_info.__bi_ptr45
-                0x10015068        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10015080        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .binary_info.__bi_ptr197
-                0x1001506c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x10015070                        __binary_info_end = .
+                0x10015084        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10015088                        __binary_info_end = .
 
-.rel.dyn        0x10015070        0x0
- .rel.iplt      0x10015070        0x0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x10015070                        . = ALIGN (0x4)
+.rel.dyn        0x10015088        0x0
+ .rel.iplt      0x10015088        0x0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x10015088                        . = ALIGN (0x4)
 
 .ram_vector_table
                 0x20000000       0xc0
@@ -3830,7 +3831,7 @@ LOAD C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/1
  .uninitialized_data.magic_location
                 0x200000c0        0xc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
 
-.data           0x200000d0     0x16c4 load address 0x10015070
+.data           0x200000d0     0x16c4 load address 0x10015088
                 0x200000d0                        __data_start__ = .
  *(vtable)
  *(.time_critical*)
@@ -3961,23 +3962,23 @@ LOAD C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/1
                 0x20001794                        . = ALIGN (0x4)
 
 .tm_clone_table
-                0x20001794        0x0 load address 0x10016734
+                0x20001794        0x0 load address 0x1001674c
  .tm_clone_table
                 0x20001794        0x0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
                 0x20001794        0x0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x20001794        0x0 load address 0x10016734
+.igot.plt       0x20001794        0x0 load address 0x1001674c
  .igot.plt      0x20001794        0x0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.tdata          0x20001794        0x0 load address 0x10016734
+.tdata          0x20001794        0x0 load address 0x1001674c
                 0x20001794                        . = ALIGN (0x4)
  *(.tdata .tdata.* .gnu.linkonce.td.*)
                 0x20001794                        __tdata_end = .
                 0x20001794                        PROVIDE (__data_end__ = .)
-                0x10015070                        __etext = LOADADDR (.data)
+                0x10015088                        __etext = LOADADDR (.data)
 
-.tbss           0x20001794        0x0 load address 0x10016734
+.tbss           0x20001794        0x0 load address 0x1001674c
                 0x20001794                        . = ALIGN (0x4)
                 0x20001794                        __bss_start__ = .
                 0x20001794                        __tls_base = .
@@ -3985,7 +3986,7 @@ LOAD C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/1
  *(.tcommon)
                 0x20001794                        __tls_end = .
 
-.bss            0x20001798     0x10a8 load address 0x10016734
+.bss            0x20001798     0x10b0 load address 0x1001674c
                 0x20001798                        . = ALIGN (0x4)
                 0x20001798                        __tbss_end = .
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.bss*)))
@@ -4062,110 +4063,116 @@ LOAD C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/1
                 0x20002238      0x100 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
  .bss.brake     0x20002338        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
                 0x20002338                brake
- .bss.brake_position
+ .bss.brake_output
                 0x2000233c        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x2000233c                brake_position
+                0x2000233c                brake_output
+ .bss.brake_position
+                0x20002340        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x20002340                brake_position
+ .bss.brake_state
+                0x20002344        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x20002344                brake_state
  .bss.chars_available_callback
-                0x20002340        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .bss.chars_available_callback
-                0x20002344        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .bss.chars_available_param
                 0x20002348        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .bss.chars_available_param
+ .bss.chars_available_callback
                 0x2000234c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .bss.claimed   0x20002350        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
- .bss.claimed   0x20002354        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x20002355        0x3 
+ .bss.chars_available_param
+                0x20002350        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ .bss.chars_available_param
+                0x20002354        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .bss.claimed   0x20002358        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+ .bss.claimed   0x2000235c        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x2000235d        0x3 
  .bss.configured_freq
-                0x20002358       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x20002360       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
  .bss.desc_str.0
-                0x20002380       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .bss.drivers   0x200023a8        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+                0x20002388       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .bss.drivers   0x200023b0        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
  .bss.e15_last_sof
-                0x200023ac        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x200023ac                e15_last_sof
- .bss.errno     0x200023b0        0x4 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-reent.o)
-                0x200023b0                errno
- .bss.filter    0x200023b4        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+                0x200023b4        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x200023b4                e15_last_sof
+ .bss.errno     0x200023b8        0x4 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-reent.o)
+                0x200023b8                errno
+ .bss.filter    0x200023bc        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
  .bss.heap_end.0
-                0x200023b8        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+                0x200023c0        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
  .bss.hw_endpoints
-                0x200023bc      0x400 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x200023c4      0x400 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .bss.lazy_vsnprintf
-                0x200027bc        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x200027c4        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .bss.load_value
-                0x200027c0        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x200027c8        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
  .bss.next_buffer_ptr
-                0x200027c4        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .bss.object.0  0x200027c8       0x18 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x200027cc        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .bss.object.0  0x200027d0       0x18 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp/crtbegin.o
  .bss.one_shot_timer_crit_sec
-                0x200027e0        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .bss.pools     0x200027e8       0x10 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+                0x200027e8        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .bss.pools     0x200027f0       0x10 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
  .bss.retrieved_id
-                0x200027f8        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x20002800        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
  .bss.sf_clz_func
-                0x20002800        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
-                0x20002800                sf_clz_func
+                0x20002808        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+                0x20002808                sf_clz_func
  .bss.sleep_notifier
-                0x20002804        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+                0x2000280c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
  .bss.stdio_usb_mutex
-                0x20002808        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .bss.steer     0x20002810        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x20002810                steer
+                0x20002810        0x8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .bss.steer     0x20002818        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x20002818                steer
  .bss.steer_position
-                0x20002814        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x20002814                steer_position
- .bss.throttle  0x20002818        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                0x20002818                throttle
+                0x2000281c        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x2000281c                steer_position
+ .bss.throttle  0x20002820        0x4 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x20002820                throttle
  .bss.uart_char_to_line_feed
-                0x2000281c        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
-                0x2000281c                uart_char_to_line_feed
+                0x20002824        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+                0x20002824                uart_char_to_line_feed
  .bss.uart_instance
-                0x20002820        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x20002828        0x4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .bss.usbd_serial_str
-                0x20002824       0x11 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x2000282c       0x11 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .bss._app_driver_count
-                0x20002835        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x2000283d        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .bss._sof_enable
-                0x20002836        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x2000283e        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .bss._usbd_queued_setup
-                0x20002837        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x2000283f        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .bss.boot2_copyout_valid
-                0x20002838        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+                0x20002840        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
  .bss.irq_handler_chain_free_slot_head
-                0x20002839        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
- .bss.itf_num   0x2000283a        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x20002841        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+ .bss.itf_num   0x20002842        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .bss.low_priority_irq_num
-                0x2000283b        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x20002843        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .bss.one_shot_timer_pending
-                0x2000283c        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x20002844        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .bss.user_irq_claimed
-                0x2000283d        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+                0x20002845        0x1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
  *(COMMON)
-                0x20002840                        . = ALIGN (0x4)
- *fill*         0x2000283e        0x2 
-                0x20002840                        __bss_end__ = .
+                0x20002848                        . = ALIGN (0x4)
+ *fill*         0x20002846        0x2 
+                0x20002848                        __bss_end__ = .
 
-.heap           0x20002840      0x800 load address 0x10016734
-                0x20002840                        __end__ = .
-                0x20002840                        end = __end__
+.heap           0x20002848      0x800 load address 0x1001674c
+                0x20002848                        __end__ = .
+                0x20002848                        end = __end__
  *(.heap*)
- .heap          0x20002840      0x800 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
+ .heap          0x20002848      0x800 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
                 0x20040000                        __HeapLimit = (ORIGIN (RAM) + LENGTH (RAM))
 
-.scratch_x      0x20040000        0x0 load address 0x10016734
+.scratch_x      0x20040000        0x0 load address 0x1001674c
                 0x20040000                        __scratch_x_start__ = .
  *(.scratch_x.*)
                 0x20040000                        . = ALIGN (0x4)
                 0x20040000                        __scratch_x_end__ = .
-                0x10016734                        __scratch_x_source__ = LOADADDR (.scratch_x)
+                0x1001674c                        __scratch_x_source__ = LOADADDR (.scratch_x)
 
-.scratch_y      0x20041000        0x0 load address 0x10016734
+.scratch_y      0x20041000        0x0 load address 0x1001674c
                 0x20041000                        __scratch_y_start__ = .
  *(.scratch_y.*)
                 0x20041000                        . = ALIGN (0x4)
                 0x20041000                        __scratch_y_end__ = .
-                0x10016734                        __scratch_y_source__ = LOADADDR (.scratch_y)
+                0x1001674c                        __scratch_y_source__ = LOADADDR (.scratch_y)
 
 .stack1_dummy   0x20040000      0x800
  *(.stack1*)
@@ -4175,9 +4182,9 @@ LOAD C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/1
  *(.stack*)
  .stack         0x20041000      0x800 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
 
-.flash_end      0x10016734        0x0
+.flash_end      0x1001674c        0x0
  *(.embedded_end_block*)
-                0x10016734                        PROVIDE (__flash_binary_end = .)
+                0x1001674c                        PROVIDE (__flash_binary_end = .)
                 0x20040000                        __StackLimit = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20041000                        __StackOneTop = (ORIGIN (SCRATCH_X) + LENGTH (SCRATCH_X))
                 0x20042000                        __StackTop = (ORIGIN (SCRATCH_Y) + LENGTH (SCRATCH_Y))
@@ -4563,648 +4570,648 @@ LOAD linker stubs
  .comment       0x00000045       0x46 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
  .comment       0x00000045       0x46 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
-.debug_info     0x00000000    0x38502
- .debug_info    0x00000000     0x2d5a CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
- .debug_info    0x00002d5a     0x242d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_info    0x00005187      0x129 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
- .debug_info    0x000052b0      0x1bf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
- .debug_info    0x0000546f      0x9a1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
- .debug_info    0x00005e10      0x45c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
- .debug_info    0x0000626c      0x245 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
- .debug_info    0x000064b1     0x220f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
- .debug_info    0x000086c0      0x15f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
- .debug_info    0x0000881f     0x27f1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
- .debug_info    0x0000b010      0x308 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
- .debug_info    0x0000b318     0x5036 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
- .debug_info    0x0001034e     0x2b13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
- .debug_info    0x00012e61     0x195f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
- .debug_info    0x000147c0     0x2991 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_info    0x00017151      0x4e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
- .debug_info    0x00017636      0x8af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_info    0x00017ee5      0x248 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
- .debug_info    0x0001812d      0x678 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_info    0x000187a5      0x1d0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_info    0x00018975      0x21a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_info    0x00018b8f      0x795 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
- .debug_info    0x00019324      0x781 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
- .debug_info    0x00019aa5       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_info    0x00019ac8       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
- .debug_info    0x00019aeb       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
- .debug_info    0x00019b0e      0x27e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
- .debug_info    0x00019d8c       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
- .debug_info    0x00019daf       0x24 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_info    0x00019dd3       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
- .debug_info    0x00019df6      0x27e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
- .debug_info    0x0001a074       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
- .debug_info    0x0001a097      0x619 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
- .debug_info    0x0001a6b0       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_info    0x0001a6d3      0x2e2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .debug_info    0x0001a9b5     0x22f2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
- .debug_info    0x0001cca7       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
- .debug_info    0x0001ccca      0xb54 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
- .debug_info    0x0001d81e     0x1d96 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_info    0x0001f5b4     0x14e7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .debug_info    0x00020a9b      0xa6f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_info    0x0002150a     0x1eef CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_info    0x000233f9      0x686 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_info    0x00023a7f      0x201 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_info    0x00023c80     0x12f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
- .debug_info    0x00024f74     0x2af8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_info    0x00027a6c     0x1158 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_info    0x00028bc4     0x49a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
- .debug_info    0x0002d56c      0xb42 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_info    0x0002e0ae     0x1fae CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_info    0x0003005c     0x1713 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
- .debug_info    0x0003176f     0x1e8c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
- .debug_info    0x000335fb     0x283d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_info    0x00035e38     0x1fda CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_info    0x00037e12      0x2f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
- .debug_info    0x00038106      0x3fc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+.debug_info     0x00000000    0x3882f
+ .debug_info    0x00000000     0x3087 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+ .debug_info    0x00003087     0x242d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_info    0x000054b4      0x129 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+ .debug_info    0x000055dd      0x1bf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+ .debug_info    0x0000579c      0x9a1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+ .debug_info    0x0000613d      0x45c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_info    0x00006599      0x245 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+ .debug_info    0x000067de     0x220f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_info    0x000089ed      0x15f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+ .debug_info    0x00008b4c     0x27f1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+ .debug_info    0x0000b33d      0x308 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+ .debug_info    0x0000b645     0x5036 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+ .debug_info    0x0001067b     0x2b13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_info    0x0001318e     0x195f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+ .debug_info    0x00014aed     0x2991 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_info    0x0001747e      0x4e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_info    0x00017963      0x8af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_info    0x00018212      0x248 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+ .debug_info    0x0001845a      0x678 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_info    0x00018ad2      0x1d0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_info    0x00018ca2      0x21a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_info    0x00018ebc      0x795 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+ .debug_info    0x00019651      0x781 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+ .debug_info    0x00019dd2       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_info    0x00019df5       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
+ .debug_info    0x00019e18       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+ .debug_info    0x00019e3b      0x27e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+ .debug_info    0x0001a0b9       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+ .debug_info    0x0001a0dc       0x24 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_info    0x0001a100       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+ .debug_info    0x0001a123      0x27e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+ .debug_info    0x0001a3a1       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+ .debug_info    0x0001a3c4      0x619 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+ .debug_info    0x0001a9dd       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_info    0x0001aa00      0x2e2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .debug_info    0x0001ace2     0x22f2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+ .debug_info    0x0001cfd4       0x23 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
+ .debug_info    0x0001cff7      0xb54 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+ .debug_info    0x0001db4b     0x1d96 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_info    0x0001f8e1     0x14e7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ .debug_info    0x00020dc8      0xa6f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_info    0x00021837     0x1eef CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_info    0x00023726      0x686 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_info    0x00023dac      0x201 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_info    0x00023fad     0x12f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_info    0x000252a1     0x2af8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_info    0x00027d99     0x1158 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_info    0x00028ef1     0x49a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+ .debug_info    0x0002d899      0xb42 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_info    0x0002e3db     0x1fae CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_info    0x00030389     0x1713 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+ .debug_info    0x00031a9c     0x1e8c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+ .debug_info    0x00033928     0x283d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_info    0x00036165     0x1fda CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+ .debug_info    0x0003813f      0x2f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+ .debug_info    0x00038433      0x3fc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
-.debug_abbrev   0x00000000     0x9dea
- .debug_abbrev  0x00000000      0x548 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
- .debug_abbrev  0x00000548      0x50e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_abbrev  0x00000a56       0x77 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
- .debug_abbrev  0x00000acd      0x12b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
- .debug_abbrev  0x00000bf8      0x328 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
- .debug_abbrev  0x00000f20      0x20f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
- .debug_abbrev  0x0000112f      0x1bb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
- .debug_abbrev  0x000012ea      0x614 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
- .debug_abbrev  0x000018fe       0xee CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
- .debug_abbrev  0x000019ec      0x48c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
- .debug_abbrev  0x00001e78      0x1d5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
- .debug_abbrev  0x0000204d      0x659 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
- .debug_abbrev  0x000026a6      0x4f2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
- .debug_abbrev  0x00002b98      0x365 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
- .debug_abbrev  0x00002efd      0x4eb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_abbrev  0x000033e8      0x1d2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
- .debug_abbrev  0x000035ba      0x294 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_abbrev  0x0000384e      0x145 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
- .debug_abbrev  0x00003993      0x1bc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_abbrev  0x00003b4f      0x11d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_abbrev  0x00003c6c      0x182 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_abbrev  0x00003dee      0x222 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
- .debug_abbrev  0x00004010      0x2af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
- .debug_abbrev  0x000042bf       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_abbrev  0x000042d1       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
- .debug_abbrev  0x000042e3       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
- .debug_abbrev  0x000042f5      0x17a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
- .debug_abbrev  0x0000446f       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
- .debug_abbrev  0x00004481       0x14 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_abbrev  0x00004495       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
- .debug_abbrev  0x000044a7      0x173 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
- .debug_abbrev  0x0000461a       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
- .debug_abbrev  0x0000462c      0x211 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
- .debug_abbrev  0x0000483d       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_abbrev  0x0000484f       0xb8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .debug_abbrev  0x00004907      0x50c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
- .debug_abbrev  0x00004e13       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
- .debug_abbrev  0x00004e25      0x352 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
- .debug_abbrev  0x00005177      0x5d9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_abbrev  0x00005750      0x498 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .debug_abbrev  0x00005be8      0x3aa CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_abbrev  0x00005f92      0x592 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_abbrev  0x00006524      0x16c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_abbrev  0x00006690      0x153 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_abbrev  0x000067e3      0x371 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
- .debug_abbrev  0x00006b54      0x5d9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_abbrev  0x0000712d      0x480 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_abbrev  0x000075ad      0x7f2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
- .debug_abbrev  0x00007d9f      0x38d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_abbrev  0x0000812c      0x560 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_abbrev  0x0000868c      0x48c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
- .debug_abbrev  0x00008b18      0x534 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
- .debug_abbrev  0x0000904c      0x443 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_abbrev  0x0000948f      0x621 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_abbrev  0x00009ab0      0x1f8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
- .debug_abbrev  0x00009ca8      0x142 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+.debug_abbrev   0x00000000     0x9e7f
+ .debug_abbrev  0x00000000      0x5dd CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+ .debug_abbrev  0x000005dd      0x50e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_abbrev  0x00000aeb       0x77 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+ .debug_abbrev  0x00000b62      0x12b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+ .debug_abbrev  0x00000c8d      0x328 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+ .debug_abbrev  0x00000fb5      0x20f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_abbrev  0x000011c4      0x1bb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+ .debug_abbrev  0x0000137f      0x614 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_abbrev  0x00001993       0xee CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+ .debug_abbrev  0x00001a81      0x48c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+ .debug_abbrev  0x00001f0d      0x1d5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+ .debug_abbrev  0x000020e2      0x659 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+ .debug_abbrev  0x0000273b      0x4f2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_abbrev  0x00002c2d      0x365 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+ .debug_abbrev  0x00002f92      0x4eb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_abbrev  0x0000347d      0x1d2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_abbrev  0x0000364f      0x294 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_abbrev  0x000038e3      0x145 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+ .debug_abbrev  0x00003a28      0x1bc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_abbrev  0x00003be4      0x11d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_abbrev  0x00003d01      0x182 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_abbrev  0x00003e83      0x222 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+ .debug_abbrev  0x000040a5      0x2af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+ .debug_abbrev  0x00004354       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_abbrev  0x00004366       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
+ .debug_abbrev  0x00004378       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+ .debug_abbrev  0x0000438a      0x17a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+ .debug_abbrev  0x00004504       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+ .debug_abbrev  0x00004516       0x14 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_abbrev  0x0000452a       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+ .debug_abbrev  0x0000453c      0x173 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+ .debug_abbrev  0x000046af       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+ .debug_abbrev  0x000046c1      0x211 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+ .debug_abbrev  0x000048d2       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_abbrev  0x000048e4       0xb8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .debug_abbrev  0x0000499c      0x50c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+ .debug_abbrev  0x00004ea8       0x12 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
+ .debug_abbrev  0x00004eba      0x352 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+ .debug_abbrev  0x0000520c      0x5d9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_abbrev  0x000057e5      0x498 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ .debug_abbrev  0x00005c7d      0x3aa CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_abbrev  0x00006027      0x592 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_abbrev  0x000065b9      0x16c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_abbrev  0x00006725      0x153 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_abbrev  0x00006878      0x371 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_abbrev  0x00006be9      0x5d9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_abbrev  0x000071c2      0x480 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_abbrev  0x00007642      0x7f2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+ .debug_abbrev  0x00007e34      0x38d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_abbrev  0x000081c1      0x560 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_abbrev  0x00008721      0x48c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+ .debug_abbrev  0x00008bad      0x534 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+ .debug_abbrev  0x000090e1      0x443 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_abbrev  0x00009524      0x621 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+ .debug_abbrev  0x00009b45      0x1f8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+ .debug_abbrev  0x00009d3d      0x142 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
 .debug_loclists
-                0x00000000    0x1da3b
+                0x00000000    0x1dc90
  .debug_loclists
-                0x00000000      0xf25 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x00000000     0x117a CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .debug_loclists
-                0x00000f25     0x1ac0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x0000117a     0x1ac0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
  .debug_loclists
-                0x000029e5       0x53 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+                0x00002c3a       0x53 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
  .debug_loclists
-                0x00002a38      0x349 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+                0x00002c8d      0x349 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
  .debug_loclists
-                0x00002d81      0x108 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+                0x00002fd6      0x108 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
  .debug_loclists
-                0x00002e89       0x7d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+                0x000030de       0x7d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
  .debug_loclists
-                0x00002f06     0x11ed CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000315b     0x11ed CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
  .debug_loclists
-                0x000040f3       0x41 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+                0x00004348       0x41 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
  .debug_loclists
-                0x00004134      0xaec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+                0x00004389      0xaec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
  .debug_loclists
-                0x00004c20       0xb6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+                0x00004e75       0xb6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
  .debug_loclists
-                0x00004cd6     0x27d7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+                0x00004f2b     0x27d7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
  .debug_loclists
-                0x000074ad     0x19f6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+                0x00007702     0x19f6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
  .debug_loclists
-                0x00008ea3      0xc90 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+                0x000090f8      0xc90 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
  .debug_loclists
-                0x00009b33     0x2b6f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x00009d88     0x2b6f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
  .debug_loclists
-                0x0000c6a2      0x1e0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+                0x0000c8f7      0x1e0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
  .debug_loclists
-                0x0000c882      0x532 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x0000cad7      0x532 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
  .debug_loclists
-                0x0000cdb4       0x47 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+                0x0000d009       0x47 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
  .debug_loclists
-                0x0000cdfb      0x351 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x0000d050      0x351 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
  .debug_loclists
-                0x0000d14c       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+                0x0000d3a1       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
  .debug_loclists
-                0x0000d194       0x7e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000d3e9       0x7e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
  .debug_loclists
-                0x0000d212       0xba CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+                0x0000d467       0xba CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
  .debug_loclists
-                0x0000d2cc       0x74 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+                0x0000d521       0x74 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
  .debug_loclists
-                0x0000d340       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+                0x0000d595       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
  .debug_loclists
-                0x0000d37d       0x59 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+                0x0000d5d2       0x59 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
  .debug_loclists
-                0x0000d3d6      0x289 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+                0x0000d62b      0x289 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
  .debug_loclists
-                0x0000d65f     0x355f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x0000d8b4     0x355f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .debug_loclists
-                0x00010bbe      0x431 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+                0x00010e13      0x431 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
  .debug_loclists
-                0x00010fef      0xf58 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+                0x00011244      0xf58 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
  .debug_loclists
-                0x00011f47      0x75b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x0001219c      0x75b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .debug_loclists
-                0x000126a2      0x266 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x000128f7      0x266 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .debug_loclists
-                0x00012908      0x7cb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x00012b5d      0x7cb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .debug_loclists
-                0x000130d3       0xed CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x00013328       0xed CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .debug_loclists
-                0x000131c0      0x3d5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x00013415      0x3d5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
  .debug_loclists
-                0x00013595      0x92a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+                0x000137ea      0x92a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
  .debug_loclists
-                0x00013ebf     0x1bde CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00014114     0x1bde CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .debug_loclists
-                0x00015a9d      0x719 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x00015cf2      0x719 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
  .debug_loclists
-                0x000161b6     0x21ed CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x0001640b     0x21ed CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .debug_loclists
-                0x000183a3      0x45e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+                0x000185f8      0x45e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
  .debug_loclists
-                0x00018801      0xdc9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x00018a56      0xdc9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
  .debug_loclists
-                0x000195ca      0x7e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+                0x0001981f      0x7e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
  .debug_loclists
-                0x00019daf      0xf80 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+                0x0001a004      0xf80 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
  .debug_loclists
-                0x0001ad2f     0x1fdb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x0001af84     0x1fdb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
  .debug_loclists
-                0x0001cd0a      0xc34 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+                0x0001cf5f      0xc34 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
  .debug_loclists
-                0x0001d93e       0x65 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+                0x0001db93       0x65 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
  .debug_loclists
-                0x0001d9a3       0x98 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+                0x0001dbf8       0x98 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
-.debug_aranges  0x00000000     0x18a8
+.debug_aranges  0x00000000     0x18b0
  .debug_aranges
-                0x00000000       0x78 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x00000000       0x80 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .debug_aranges
-                0x00000078      0x120 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x00000080      0x120 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
  .debug_aranges
-                0x00000198       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+                0x000001a0       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
  .debug_aranges
-                0x000001b8       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+                0x000001c0       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
  .debug_aranges
-                0x000001e0       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+                0x000001e8       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
  .debug_aranges
-                0x00000228       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+                0x00000230       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
  .debug_aranges
-                0x00000270       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+                0x00000278       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
  .debug_aranges
-                0x00000298       0xb8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+                0x000002a0       0xb8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
  .debug_aranges
-                0x00000350       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+                0x00000358       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
  .debug_aranges
-                0x00000370       0x98 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+                0x00000378       0x98 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
  .debug_aranges
-                0x00000408       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+                0x00000410       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
  .debug_aranges
-                0x00000438       0xe0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+                0x00000440       0xe0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
  .debug_aranges
-                0x00000518       0xf0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+                0x00000520       0xf0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
  .debug_aranges
-                0x00000608       0x58 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+                0x00000610       0x58 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
  .debug_aranges
-                0x00000660       0x90 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x00000668       0x90 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
  .debug_aranges
-                0x000006f0       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+                0x000006f8       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
  .debug_aranges
-                0x00000718       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x00000720       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
  .debug_aranges
-                0x00000778       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+                0x00000780       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
  .debug_aranges
-                0x000007a8       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x000007b0       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
  .debug_aranges
-                0x000007e8       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+                0x000007f0       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
  .debug_aranges
-                0x00000818       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+                0x00000820       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
  .debug_aranges
-                0x00000850       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+                0x00000858       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
  .debug_aranges
-                0x00000898       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+                0x000008a0       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
  .debug_aranges
-                0x000008b8       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x000008c0       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
  .debug_aranges
-                0x00000918       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
+                0x00000920       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
  .debug_aranges
-                0x00000958      0x150 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+                0x00000960      0x150 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
  .debug_aranges
-                0x00000aa8       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+                0x00000ab0       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
  .debug_aranges
-                0x00000ac8       0xc8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+                0x00000ad0       0xc8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
  .debug_aranges
-                0x00000b90       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+                0x00000b98       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
  .debug_aranges
-                0x00000bb0      0x138 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+                0x00000bb8      0x138 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
  .debug_aranges
-                0x00000ce8       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+                0x00000cf0       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
  .debug_aranges
-                0x00000d08       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+                0x00000d10       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
  .debug_aranges
-                0x00000d58       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+                0x00000d60       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
  .debug_aranges
-                0x00000d90       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x00000d98       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
  .debug_aranges
-                0x00000dc8       0x18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+                0x00000dd0       0x18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
  .debug_aranges
-                0x00000de0       0x90 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x00000de8       0x90 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .debug_aranges
-                0x00000e70       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
+                0x00000e78       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
  .debug_aranges
-                0x00000e98       0xa0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+                0x00000ea0       0xa0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
  .debug_aranges
-                0x00000f38       0xc8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+                0x00000f40       0xc8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
  .debug_aranges
-                0x00001000       0x80 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x00001008       0x80 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .debug_aranges
-                0x00001080       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x00001088       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .debug_aranges
-                0x000010e0       0x68 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x000010e8       0x68 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .debug_aranges
-                0x00001148       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x00001150       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .debug_aranges
-                0x00001178       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x00001180       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
  .debug_aranges
-                0x000011a8       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+                0x000011b0       0x60 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
  .debug_aranges
-                0x00001208       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00001210       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .debug_aranges
-                0x000012c8       0x70 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x000012d0       0x70 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
  .debug_aranges
-                0x00001338      0x188 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x00001340      0x188 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .debug_aranges
-                0x000014c0       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+                0x000014c8       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
  .debug_aranges
-                0x00001510       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x00001518       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
  .debug_aranges
-                0x000015d0       0x80 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+                0x000015d8       0x80 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
  .debug_aranges
-                0x00001650       0xb8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+                0x00001658       0xb8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
  .debug_aranges
-                0x00001708       0xb0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x00001710       0xb0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
  .debug_aranges
-                0x000017b8       0xb0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+                0x000017c0       0xb0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
  .debug_aranges
-                0x00001868       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+                0x00001870       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
  .debug_aranges
-                0x00001888       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+                0x00001890       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
 .debug_rnglists
-                0x00000000     0x4fda
+                0x00000000     0x5025
  .debug_rnglists
-                0x00000000      0x381 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                0x00000000      0x3cc CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
  .debug_rnglists
-                0x00000381      0x5d0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x000003cc      0x5d0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
  .debug_rnglists
-                0x00000951       0x13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+                0x0000099c       0x13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
  .debug_rnglists
-                0x00000964       0x19 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+                0x000009af       0x19 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
  .debug_rnglists
-                0x0000097d       0xb6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+                0x000009c8       0xb6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
  .debug_rnglists
-                0x00000a33       0x58 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+                0x00000a7e       0x58 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
  .debug_rnglists
-                0x00000a8b       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+                0x00000ad6       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
  .debug_rnglists
-                0x00000ac8      0x37d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+                0x00000b13      0x37d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
  .debug_rnglists
-                0x00000e45       0x1f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+                0x00000e90       0x1f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
  .debug_rnglists
-                0x00000e64      0x325 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+                0x00000eaf      0x325 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
  .debug_rnglists
-                0x00001189       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+                0x000011d4       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
  .debug_rnglists
-                0x000011b4      0x7e2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+                0x000011ff      0x7e2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
  .debug_rnglists
-                0x00001996      0x2c6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+                0x000019e1      0x2c6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
  .debug_rnglists
-                0x00001c5c      0x259 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+                0x00001ca7      0x259 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
  .debug_rnglists
-                0x00001eb5      0x5af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x00001f00      0x5af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
  .debug_rnglists
-                0x00002464       0x5c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+                0x000024af       0x5c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
  .debug_rnglists
-                0x000024c0       0xdf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x0000250b       0xdf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
  .debug_rnglists
-                0x0000259f       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+                0x000025ea       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
  .debug_rnglists
-                0x000025ca      0x112 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x00002615      0x112 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
  .debug_rnglists
-                0x000026dc       0x1f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+                0x00002727       0x1f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
  .debug_rnglists
-                0x000026fb       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+                0x00002746       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
  .debug_rnglists
-                0x00002738       0x49 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+                0x00002783       0x49 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
  .debug_rnglists
-                0x00002781       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+                0x000027cc       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
  .debug_rnglists
-                0x000027a1       0x43 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x000027ec       0x43 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
  .debug_rnglists
-                0x000027e4       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
+                0x0000282f       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
  .debug_rnglists
-                0x00002810       0xf9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+                0x0000285b       0xf9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
  .debug_rnglists
-                0x00002909       0x14 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+                0x00002954       0x14 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
  .debug_rnglists
-                0x0000291d       0x99 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+                0x00002968       0x99 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
  .debug_rnglists
-                0x000029b6       0xe5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+                0x00002a01       0xe5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
  .debug_rnglists
-                0x00002a9b       0x13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+                0x00002ae6       0x13 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
  .debug_rnglists
-                0x00002aae       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+                0x00002af9       0x38 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
  .debug_rnglists
-                0x00002ae6       0x49 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+                0x00002b31       0x49 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
  .debug_rnglists
-                0x00002b2f       0x25 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x00002b7a       0x25 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
  .debug_rnglists
-                0x00002b54      0x2a2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+                0x00002b9f      0x2a2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
  .debug_rnglists
-                0x00002df6       0x1b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
+                0x00002e41       0x1b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
  .debug_rnglists
-                0x00002e11       0x7f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+                0x00002e5c       0x7f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
  .debug_rnglists
-                0x00002e90      0x2bb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+                0x00002edb      0x2bb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
  .debug_rnglists
-                0x0000314b      0x1ce CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x00003196      0x1ce CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .debug_rnglists
-                0x00003319       0x43 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x00003364       0x43 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .debug_rnglists
-                0x0000335c      0x149 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x000033a7      0x149 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .debug_rnglists
-                0x000034a5       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x000034f0       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .debug_rnglists
-                0x000034d0       0x70 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x0000351b       0x70 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
  .debug_rnglists
-                0x00003540      0x29d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+                0x0000358b      0x29d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
  .debug_rnglists
-                0x000037dd      0x425 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00003828      0x425 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .debug_rnglists
-                0x00003c02       0xe8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x00003c4d       0xe8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
  .debug_rnglists
-                0x00003cea      0x601 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+                0x00003d35      0x601 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
  .debug_rnglists
-                0x000042eb       0x8e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+                0x00004336       0x8e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
  .debug_rnglists
-                0x00004379      0x1ee CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x000043c4      0x1ee CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
  .debug_rnglists
-                0x00004567      0x11e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+                0x000045b2      0x11e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
  .debug_rnglists
-                0x00004685      0x210 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+                0x000046d0      0x210 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
  .debug_rnglists
-                0x00004895      0x3d3 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x000048e0      0x3d3 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
  .debug_rnglists
-                0x00004c68      0x30a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+                0x00004cb3      0x30a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
  .debug_rnglists
-                0x00004f72       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+                0x00004fbd       0x3d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
  .debug_rnglists
-                0x00004faf       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+                0x00004ffa       0x2b CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
-.debug_line     0x00000000    0x288ed
- .debug_line    0x00000000     0x182b CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
- .debug_line    0x0000182b     0x1ca4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_line    0x000034cf      0x262 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
- .debug_line    0x00003731      0x28a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
- .debug_line    0x000039bb      0x8f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
- .debug_line    0x000042af      0x4d8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
- .debug_line    0x00004787      0x3ba CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
- .debug_line    0x00004b41     0x1775 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
- .debug_line    0x000062b6      0x2e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
- .debug_line    0x0000659b     0x1b45 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
- .debug_line    0x000080e0      0x419 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
- .debug_line    0x000084f9     0x3556 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
- .debug_line    0x0000ba4f     0x1d16 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
- .debug_line    0x0000d765      0xfa9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
- .debug_line    0x0000e70e     0x210c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_line    0x0001081a      0x500 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
- .debug_line    0x00010d1a      0x7b4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_line    0x000114ce      0x344 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
- .debug_line    0x00011812      0x460 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_line    0x00011c72      0x34d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_line    0x00011fbf      0x319 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_line    0x000122d8      0x542 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
- .debug_line    0x0001281a      0x569 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
- .debug_line    0x00012d83      0x107 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_line    0x00012e8a      0x2a9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
- .debug_line    0x00013133      0x452 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
- .debug_line    0x00013585      0x49c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
- .debug_line    0x00013a21      0x66d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
- .debug_line    0x0001408e       0x61 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_line    0x000140ef      0x3d2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
- .debug_line    0x000144c1      0x3b1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
- .debug_line    0x00014872      0x195 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
- .debug_line    0x00014a07      0x508 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
- .debug_line    0x00014f0f       0x94 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_line    0x00014fa3      0x1f5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .debug_line    0x00015198     0x1d18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
- .debug_line    0x00016eb0       0xa5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
- .debug_line    0x00016f55      0x870 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
- .debug_line    0x000177c5     0x154d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_line    0x00018d12      0xe1e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .debug_line    0x00019b30      0x51c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_line    0x0001a04c     0x11b6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_line    0x0001b202      0x3c1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_line    0x0001b5c3      0x667 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_line    0x0001bc2a      0xbec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
- .debug_line    0x0001c816     0x1e9f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_line    0x0001e6b5      0xcbd CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_line    0x0001f372     0x28a6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
- .debug_line    0x00021c18      0x6ef CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_line    0x00022307     0x10c2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_line    0x000233c9      0xad3 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
- .debug_line    0x00023e9c     0x123d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
- .debug_line    0x000250d9     0x1a67 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_line    0x00026b40     0x15cb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_line    0x0002810b      0x3e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
- .debug_line    0x000284f0      0x3fd CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+.debug_line     0x00000000    0x28b23
+ .debug_line    0x00000000     0x1a61 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+ .debug_line    0x00001a61     0x1ca4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_line    0x00003705      0x262 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+ .debug_line    0x00003967      0x28a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+ .debug_line    0x00003bf1      0x8f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+ .debug_line    0x000044e5      0x4d8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_line    0x000049bd      0x3ba CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+ .debug_line    0x00004d77     0x1775 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_line    0x000064ec      0x2e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+ .debug_line    0x000067d1     0x1b45 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+ .debug_line    0x00008316      0x419 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+ .debug_line    0x0000872f     0x3556 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+ .debug_line    0x0000bc85     0x1d16 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_line    0x0000d99b      0xfa9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+ .debug_line    0x0000e944     0x210c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_line    0x00010a50      0x500 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_line    0x00010f50      0x7b4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_line    0x00011704      0x344 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+ .debug_line    0x00011a48      0x460 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_line    0x00011ea8      0x34d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_line    0x000121f5      0x319 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_line    0x0001250e      0x542 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+ .debug_line    0x00012a50      0x569 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+ .debug_line    0x00012fb9      0x107 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_line    0x000130c0      0x2a9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
+ .debug_line    0x00013369      0x452 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+ .debug_line    0x000137bb      0x49c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+ .debug_line    0x00013c57      0x66d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+ .debug_line    0x000142c4       0x61 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_line    0x00014325      0x3d2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+ .debug_line    0x000146f7      0x3b1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+ .debug_line    0x00014aa8      0x195 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+ .debug_line    0x00014c3d      0x508 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+ .debug_line    0x00015145       0x94 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_line    0x000151d9      0x1f5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .debug_line    0x000153ce     0x1d18 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+ .debug_line    0x000170e6       0xa5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
+ .debug_line    0x0001718b      0x870 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+ .debug_line    0x000179fb     0x154d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_line    0x00018f48      0xe1e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ .debug_line    0x00019d66      0x51c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_line    0x0001a282     0x11b6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_line    0x0001b438      0x3c1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_line    0x0001b7f9      0x667 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_line    0x0001be60      0xbec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_line    0x0001ca4c     0x1e9f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_line    0x0001e8eb      0xcbd CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_line    0x0001f5a8     0x28a6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+ .debug_line    0x00021e4e      0x6ef CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_line    0x0002253d     0x10c2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_line    0x000235ff      0xad3 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+ .debug_line    0x000240d2     0x123d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+ .debug_line    0x0002530f     0x1a67 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_line    0x00026d76     0x15cb CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+ .debug_line    0x00028341      0x3e5 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+ .debug_line    0x00028726      0x3fd CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
-.debug_str      0x00000000     0x97e7
- .debug_str     0x00000000     0x97e7 CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
-                               0x104c (size before relaxing)
- .debug_str     0x000097e7      0xc89 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_str     0x000097e7      0x20d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
- .debug_str     0x000097e7      0x214 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
- .debug_str     0x000097e7      0x397 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
- .debug_str     0x000097e7      0x340 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
- .debug_str     0x000097e7      0x253 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
- .debug_str     0x000097e7      0xa87 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
- .debug_str     0x000097e7      0x21f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
- .debug_str     0x000097e7      0x7b2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
- .debug_str     0x000097e7      0x2df CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
- .debug_str     0x000097e7     0x11a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
- .debug_str     0x000097e7      0x9fa CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
- .debug_str     0x000097e7      0xc09 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
- .debug_str     0x000097e7      0x9af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_str     0x000097e7      0x472 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
- .debug_str     0x000097e7      0x3a9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_str     0x000097e7      0x2a1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
- .debug_str     0x000097e7      0x366 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_str     0x000097e7      0x256 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_str     0x000097e7      0x2a6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_str     0x000097e7      0x79a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
- .debug_str     0x000097e7      0x4ae CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
- .debug_str     0x000097e7       0x9e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_str     0x000097e7       0xa1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
- .debug_str     0x000097e7       0xa3 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
- .debug_str     0x000097e7      0x2cf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
- .debug_str     0x000097e7       0xa9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
- .debug_str     0x000097e7       0xa7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_str     0x000097e7       0xa1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
- .debug_str     0x000097e7      0x2b4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
- .debug_str     0x000097e7       0xa7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
- .debug_str     0x000097e7      0x428 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
- .debug_str     0x000097e7       0x9e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_str     0x000097e7      0x44f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
- .debug_str     0x000097e7      0x4f8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
- .debug_str     0x000097e7       0x92 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
- .debug_str     0x000097e7      0x734 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
- .debug_str     0x000097e7      0xdaf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_str     0x000097e7      0xee8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .debug_str     0x000097e7      0xe0e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_str     0x000097e7      0xef2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_str     0x000097e7      0xfb0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_str     0x000097e7      0x285 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_str     0x000097e7      0x6df CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
- .debug_str     0x000097e7     0x1200 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_str     0x000097e7      0xa04 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_str     0x000097e7     0x1b44 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
- .debug_str     0x000097e7      0x6a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_str     0x000097e7     0x1737 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_str     0x000097e7      0xe0d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
- .debug_str     0x000097e7      0xde9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
- .debug_str     0x000097e7      0x63d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_str     0x000097e7      0xce6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_str     0x000097e7      0x327 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
- .debug_str     0x000097e7      0x42c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+.debug_str      0x00000000     0x982c
+ .debug_str     0x00000000     0x982c CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+                               0x1082 (size before relaxing)
+ .debug_str     0x0000982c      0xc89 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_str     0x0000982c      0x20d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+ .debug_str     0x0000982c      0x214 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+ .debug_str     0x0000982c      0x397 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+ .debug_str     0x0000982c      0x340 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_str     0x0000982c      0x253 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+ .debug_str     0x0000982c      0xa87 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_str     0x0000982c      0x21f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+ .debug_str     0x0000982c      0x7b2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+ .debug_str     0x0000982c      0x2df CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+ .debug_str     0x0000982c     0x11a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+ .debug_str     0x0000982c      0x9fa CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_str     0x0000982c      0xc09 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+ .debug_str     0x0000982c      0x9af CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_str     0x0000982c      0x472 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_str     0x0000982c      0x3a9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_str     0x0000982c      0x2a1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+ .debug_str     0x0000982c      0x366 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_str     0x0000982c      0x256 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_str     0x0000982c      0x2a6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_str     0x0000982c      0x79a CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+ .debug_str     0x0000982c      0x4ae CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+ .debug_str     0x0000982c       0x9e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_str     0x0000982c       0xa1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_divider/divider_hardware.S.obj
+ .debug_str     0x0000982c       0xa3 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_aeabi_rp2040.S.obj
+ .debug_str     0x0000982c      0x2cf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+ .debug_str     0x0000982c       0xa9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_v1_rom_shim_rp2040.S.obj
+ .debug_str     0x0000982c       0xa7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_str     0x0000982c       0xa1 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_aeabi_rp2040.S.obj
+ .debug_str     0x0000982c      0x2b4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+ .debug_str     0x0000982c       0xa7 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_v1_rom_shim_rp2040.S.obj
+ .debug_str     0x0000982c      0x428 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+ .debug_str     0x0000982c       0x9e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_str     0x0000982c      0x44f CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_standard_binary_info/standard_binary_info.c.obj
+ .debug_str     0x0000982c      0x4f8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+ .debug_str     0x0000982c       0x92 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_crt0/crt0.S.obj
+ .debug_str     0x0000982c      0x734 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+ .debug_str     0x0000982c      0xdaf CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_str     0x0000982c      0xee8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ .debug_str     0x0000982c      0xe0e CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_str     0x0000982c      0xef2 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_str     0x0000982c      0xfb0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_str     0x0000982c      0x285 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_str     0x0000982c      0x6df CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_str     0x0000982c     0x1200 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_str     0x0000982c      0xa04 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_str     0x0000982c     0x1b44 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+ .debug_str     0x0000982c      0x6a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_str     0x0000982c     0x1737 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_str     0x0000982c      0xe0d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+ .debug_str     0x0000982c      0xde9 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+ .debug_str     0x0000982c      0x63d CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_str     0x0000982c      0xce6 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+ .debug_str     0x0000982c      0x327 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+ .debug_str     0x0000982c      0x42c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
 
-.debug_frame    0x00000000     0x469c
- .debug_frame   0x00000000      0x18c CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
- .debug_frame   0x0000018c      0x330 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_frame   0x000004bc       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
- .debug_frame   0x000004dc       0x44 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
- .debug_frame   0x00000520       0xa0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
- .debug_frame   0x000005c0       0xa8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
- .debug_frame   0x00000668       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
- .debug_frame   0x00000698      0x1cc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
- .debug_frame   0x00000864       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
- .debug_frame   0x00000884      0x1e8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
- .debug_frame   0x00000a6c       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
- .debug_frame   0x00000abc      0x2ec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
- .debug_frame   0x00000da8      0x2c4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
- .debug_frame   0x0000106c       0xec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
- .debug_frame   0x00001158      0x1f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_frame   0x0000134c       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
- .debug_frame   0x0000138c       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_frame   0x0000144c       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
- .debug_frame   0x0000148c       0xa0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_frame   0x0000152c       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_frame   0x0000156c       0x70 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_frame   0x000015dc       0x84 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
- .debug_frame   0x00001660       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
- .debug_frame   0x0000168c       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
- .debug_frame   0x000016b8       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
- .debug_frame   0x000016e0       0x84 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
- .debug_frame   0x00001764      0x1f0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
- .debug_frame   0x00001954      0x174 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
- .debug_frame   0x00001ac8      0x2a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_frame   0x00001d70      0x158 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- .debug_frame   0x00001ec8       0xbc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_frame   0x00001f84      0x118 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_frame   0x0000209c       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_frame   0x000020e4       0x5c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_frame   0x00002140      0x114 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
- .debug_frame   0x00002254      0x220 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_frame   0x00002474      0x124 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_frame   0x00002598      0x414 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
- .debug_frame   0x000029ac       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_frame   0x00002a6c      0x234 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_frame   0x00002ca0      0x168 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
- .debug_frame   0x00002e08      0x238 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
- .debug_frame   0x00003040      0x220 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_frame   0x00003260      0x22c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
- .debug_frame   0x0000348c       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
- .debug_frame   0x000034b4       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
- .debug_frame   0x000034d4       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-callocr.o)
- .debug_frame   0x00003500       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-malloc.o)
- .debug_frame   0x00003540       0x3c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mallocr.o)
- .debug_frame   0x0000357c       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mlock.o)
- .debug_frame   0x000035bc       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-realloc.o)
- .debug_frame   0x000035e4       0x3c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-reallocr.o)
- .debug_frame   0x00003620       0x60 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sscanf.o)
- .debug_frame   0x00003680       0x90 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-stdio.o)
- .debug_frame   0x00003710       0x34 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-memmove.o)
- .debug_frame   0x00003744       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-reent.o)
- .debug_frame   0x00003770       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sbrkr.o)
- .debug_frame   0x0000379c       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-errno.o)
- .debug_frame   0x000037bc       0xb0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
- .debug_frame   0x0000386c       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sysconf.o)
- .debug_frame   0x00003894       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strcmp.o)
- .debug_frame   0x000038b4       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strlen-stub.o)
- .debug_frame   0x000038dc       0x5c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-freer.o)
- .debug_frame   0x00003938       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtoul.o)
- .debug_frame   0x000039bc       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ctype_.o)
- .debug_frame   0x000039dc       0xa4 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfiscanf.o)
- .debug_frame   0x00003a80       0x44 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
- .debug_frame   0x00003ac4      0x138 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-findfp.o)
- .debug_frame   0x00003bfc       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sccl.o)
- .debug_frame   0x00003c28       0x6c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ungetc.o)
- .debug_frame   0x00003c94       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strncmp.o)
- .debug_frame   0x00003cc0       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-stpncpy.o)
- .debug_frame   0x00003cec       0xd0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-locale.o)
- .debug_frame   0x00003dbc       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-localeconv.o)
- .debug_frame   0x00003dfc       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libm_a-sf_nan.o)
- .debug_frame   0x00003e1c       0xd8 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mbtowc_r.o)
- .debug_frame   0x00003ef4       0xf0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
- .debug_frame   0x00003fe4       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtol.o)
- .debug_frame   0x00004068       0xa0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-wctomb_r.o)
- .debug_frame   0x00004108       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtoll.o)
- .debug_frame   0x0000418c       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtoull.o)
- .debug_frame   0x00004210       0x50 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mbrtowc.o)
- .debug_frame   0x00004260       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-iswspace.o)
- .debug_frame   0x00004288       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-iswspace_l.o)
- .debug_frame   0x000042b0       0x80 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
- .debug_frame   0x00004330       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libm_a-s_nan.o)
- .debug_frame   0x00004350       0x64 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-gethex.o)
- .debug_frame   0x000043b4       0x58 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-hexnan.o)
- .debug_frame   0x0000440c      0x260 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
- .debug_frame   0x0000466c       0x30 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-categories.o)
+.debug_frame    0x00000000     0x46bc
+ .debug_frame   0x00000000      0x1ac CMakeFiles/simple_pwm.dir/simple_pwm.c.obj
+ .debug_frame   0x000001ac      0x330 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_frame   0x000004dc       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2040/pico_platform/platform.c.obj
+ .debug_frame   0x000004fc       0x44 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_platform_panic/panic.c.obj
+ .debug_frame   0x00000540       0xa0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/hardware_claim/claim.c.obj
+ .debug_frame   0x000005e0       0xa8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_frame   0x00000688       0x30 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_sync_spin_lock/sync_spin_lock.c.obj
+ .debug_frame   0x000006b8      0x1cc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_frame   0x00000884       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/lock_core.c.obj
+ .debug_frame   0x000008a4      0x1e8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/mutex.c.obj
+ .debug_frame   0x00000a8c       0x50 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_sync/critical_section.c.obj
+ .debug_frame   0x00000adc      0x2ec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/common/pico_time/time.c.obj
+ .debug_frame   0x00000dc8      0x2c4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_frame   0x0000108c       0xec CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_uart/uart.c.obj
+ .debug_frame   0x00001178      0x1f4 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_frame   0x0000136c       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_frame   0x000013ac       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_frame   0x0000146c       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_ticks/ticks.c.obj
+ .debug_frame   0x000014ac       0xa0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_frame   0x0000154c       0x40 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_frame   0x0000158c       0x70 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_frame   0x000015fc       0x84 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init.c.obj
+ .debug_frame   0x00001680       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_runtime_init/runtime_init_clocks.c.obj
+ .debug_frame   0x000016ac       0x2c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_double/double_init_rom_rp2040.c.obj
+ .debug_frame   0x000016d8       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_float/float_init_rom_rp2040.c.obj
+ .debug_frame   0x00001700       0x84 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_malloc/malloc.c.obj
+ .debug_frame   0x00001784      0x1f0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_printf/printf.c.obj
+ .debug_frame   0x00001974      0x174 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_clib_interface/newlib_interface.c.obj
+ .debug_frame   0x00001ae8      0x2a8 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_frame   0x00001d90      0x158 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ .debug_frame   0x00001ee8       0xbc CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_frame   0x00001fa4      0x118 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_frame   0x000020bc       0x48 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_frame   0x00002104       0x5c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_frame   0x00002160      0x114 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_frame   0x00002274      0x220 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_frame   0x00002494      0x124 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_frame   0x000025b8      0x414 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd.c.obj
+ .debug_frame   0x000029cc       0xc0 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_frame   0x00002a8c      0x234 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_frame   0x00002cc0      0x168 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+ .debug_frame   0x00002e28      0x238 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/tusb.c.obj
+ .debug_frame   0x00003060      0x220 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_frame   0x00003280      0x22c CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_multicore/multicore.c.obj
+ .debug_frame   0x000034ac       0x28 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/pico_bootsel_via_double_reset/pico_bootsel_via_double_reset.c.obj
+ .debug_frame   0x000034d4       0x20 CMakeFiles/simple_pwm.dir/C_/Users/erica/.pico-sdk/sdk/2.1.1/src/rp2_common/hardware_adc/adc.c.obj
+ .debug_frame   0x000034f4       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-callocr.o)
+ .debug_frame   0x00003520       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-malloc.o)
+ .debug_frame   0x00003560       0x3c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mallocr.o)
+ .debug_frame   0x0000359c       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mlock.o)
+ .debug_frame   0x000035dc       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-realloc.o)
+ .debug_frame   0x00003604       0x3c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-reallocr.o)
+ .debug_frame   0x00003640       0x60 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sscanf.o)
+ .debug_frame   0x000036a0       0x90 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-stdio.o)
+ .debug_frame   0x00003730       0x34 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-memmove.o)
+ .debug_frame   0x00003764       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-reent.o)
+ .debug_frame   0x00003790       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sbrkr.o)
+ .debug_frame   0x000037bc       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-errno.o)
+ .debug_frame   0x000037dc       0xb0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
+ .debug_frame   0x0000388c       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sysconf.o)
+ .debug_frame   0x000038b4       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strcmp.o)
+ .debug_frame   0x000038d4       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strlen-stub.o)
+ .debug_frame   0x000038fc       0x5c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-freer.o)
+ .debug_frame   0x00003958       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtoul.o)
+ .debug_frame   0x000039dc       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ctype_.o)
+ .debug_frame   0x000039fc       0xa4 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfiscanf.o)
+ .debug_frame   0x00003aa0       0x44 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-svfscanf.o)
+ .debug_frame   0x00003ae4      0x138 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-findfp.o)
+ .debug_frame   0x00003c1c       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-sccl.o)
+ .debug_frame   0x00003c48       0x6c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-ungetc.o)
+ .debug_frame   0x00003cb4       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strncmp.o)
+ .debug_frame   0x00003ce0       0x2c C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-stpncpy.o)
+ .debug_frame   0x00003d0c       0xd0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-locale.o)
+ .debug_frame   0x00003ddc       0x40 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-localeconv.o)
+ .debug_frame   0x00003e1c       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libm_a-sf_nan.o)
+ .debug_frame   0x00003e3c       0xd8 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mbtowc_r.o)
+ .debug_frame   0x00003f14       0xf0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtod.o)
+ .debug_frame   0x00004004       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtol.o)
+ .debug_frame   0x00004088       0xa0 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-wctomb_r.o)
+ .debug_frame   0x00004128       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtoll.o)
+ .debug_frame   0x000041ac       0x84 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-strtoull.o)
+ .debug_frame   0x00004230       0x50 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mbrtowc.o)
+ .debug_frame   0x00004280       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-iswspace.o)
+ .debug_frame   0x000042a8       0x28 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-iswspace_l.o)
+ .debug_frame   0x000042d0       0x80 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-jp2uc.o)
+ .debug_frame   0x00004350       0x20 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libm_a-s_nan.o)
+ .debug_frame   0x00004370       0x64 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-gethex.o)
+ .debug_frame   0x000043d4       0x58 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-gdtoa-hexnan.o)
+ .debug_frame   0x0000442c      0x260 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-mprec.o)
+ .debug_frame   0x0000468c       0x30 C:/Users/erica/.pico-sdk/toolchain/14_2_Rel1/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v6-m/nofp\libg.a(libc_a-categories.o)
 
 .debug_line_str
                 0x00000000      0x451

@@ -16,6 +16,7 @@
 #define BRAKE_CLKDIV_MAX 15.0f
 #define BRAKE_CLKDIV_MIN 7.5f
 #define LED 25
+#define THRESHOLD 0.08f
 
 // steer variables
 #define STEER_GPIO 21
@@ -31,7 +32,9 @@ volatile int steer_position;
 #define BRAKE_DIR_GPIO 18
 #define BRAKE_SENSOR 27;
 uint BRAKE_SLICE;
+volatile int brake_state;
 volatile int brake_position;
+volatile float brake_output;
 
 // throttle variables
 #define THROTTLE_L 16
@@ -64,6 +67,15 @@ void on_pwm_wrap() {
     pwm_clear_irq(pwm_gpio_to_slice_num(BRAKE_GPIO));
     pwm_clear_irq(pwm_gpio_to_slice_num(THROTTLE_L));
     pwm_clear_irq(pwm_gpio_to_slice_num(THROTTLE_R));
+
+    uint32_t mask = pwm_get_irq_status_mask();
+    if (mask & (1u << BRAKE_SLICE)) {
+        if (brake_output > THRESHOLD) {
+          brake_position++;
+        } else if (brake_output < -THRESHOLD) {
+          brake_position--;
+        }
+      }
 }
 
 void initialize() {
@@ -155,7 +167,7 @@ void writePercentSteer(float value) {
     
     percent = (percent > 0 ? percent : -percent);
     float STEER_CLKDIV = STEER_CLKDIV_MAX - (STEER_CLKDIV_MAX - STEER_CLKDIV_MIN) * percent;
-    float level = (percent > 0.08) ? 0.5 * WRAPVAL : 0;
+    float level = (percent > THRESHOLD) ? 0.5 * WRAPVAL : 0;
     pwm_set_clkdiv(STEER_SLICE, STEER_CLKDIV);
     pwm_set_chan_level(STEER_SLICE, PWM_CHAN_B, level);
 }
@@ -167,7 +179,7 @@ void writePercentBrake(float value) {
     
     percent = (percent > 0 ? percent : -percent);
     float BRAKE_CLKDIV = BRAKE_CLKDIV_MAX - (BRAKE_CLKDIV_MAX - BRAKE_CLKDIV_MIN) * percent;
-    float level = (percent > 0.08) ? 0.5 * WRAPVAL : 0;
+    float level = (percent > THRESHOLD) ? 0.5 * WRAPVAL : 0;
     pwm_set_clkdiv(BRAKE_SLICE, BRAKE_CLKDIV);
     pwm_set_chan_level(BRAKE_SLICE, PWM_CHAN_B, level);
 }
@@ -238,13 +250,26 @@ void read() {
     steer_position = adc_read();
 
     adc_select_input(1);
-    brake_position = adc_read();
+    brake_state = adc_read();
+    // if (brake_state == 0) { brake_position == 0; }
+    brake_position = 5;
 }
 
 void step() {
     gpio_put(BRAKE_GPIO, 1);
     sleep_ms(1000);
     gpio_put(BRAKE_GPIO, 0);
+}
+
+void setBrake(int goal_state) {
+    if (goal_state == 1 && brake_position < 10) {
+        brake_output = 0.5;
+    } else if (goal_state == 0 && brake_state == 1) {
+        brake_output = -0.5;
+    } else {
+        brake_output = 0;
+    }
+    writePercentBrake(brake_output);
 }
 
 int main() {
@@ -259,7 +284,15 @@ int main() {
         float steer_output = calculate(0.0003, steer_setpoint, steer_position);
         writePercentSteer(steer_output);
 
-        writePercentBrake(brake);
+        // if (brake == 0) {
+        //     setBrake(0);
+        // } else {
+        //     setBrake(1);
+        // }
+        // setBrake(0);
+
+        brake_output = brake; // for testing
+        writePercentBrake(brake_output);
         
         // writePercentThrottle(throttle);
 
@@ -273,7 +306,7 @@ int main() {
             // printf("Steer Position: %d\tSteer Output: %f\n", adc_read(), steer_output);
             // printf("Steer Position: %d \n", adc_read());
             // printf("Throttle: %f\n", throttle);
-            printf("Brake: %f\n", brake);
+            printf("Brake Output: %f\tBrake Position: %d\n", brake_output, brake_position);
             iters = 0;
         } else {
             iters += 1;
