@@ -44,7 +44,8 @@
         "limits": "c",
         "multicore.h": "c",
         "uart.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "pwm.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
