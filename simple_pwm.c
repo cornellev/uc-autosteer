@@ -22,14 +22,14 @@
 #define STEER_DIR_GPIO 20
 #define STEER_SENSOR 28
 uint STEER_SLICE;
-const int STEER_MIN_POSITION = 800;
-const int STEER_MAX_POSITION = 2200;
+const int STEER_MIN_POSITION = 600;
+const int STEER_MAX_POSITION = 950;
 volatile int steer_position;
 
 // brake variables
 #define BRAKE_GPIO 19
 #define BRAKE_DIR_GPIO 18
-#define BRAKE_SENSOR 27;
+#define BRAKE_SENSOR 27
 uint BRAKE_SLICE;
 volatile int brake_position;
 
@@ -58,7 +58,22 @@ volatile float steer = 0;
 volatile float brake = 0;
 volatile float throttle = 0;
 
-void on_pwm_wrap() {
+volatile int brake_moved_steps = 0;
+
+void on_pwm_wrap()
+{
+    if (brake > 0)
+    {
+        if (gpio_get(BRAKE_SENSOR))
+        {
+            brake_moved_steps++;
+        }
+        else
+        {
+            brake_moved_steps = 0;
+        }
+    }
+
     // Clear the interrupt flag that brought us here
     pwm_clear_irq(pwm_gpio_to_slice_num(STEER_GPIO));
     pwm_clear_irq(pwm_gpio_to_slice_num(BRAKE_GPIO));
@@ -66,7 +81,8 @@ void on_pwm_wrap() {
     pwm_clear_irq(pwm_gpio_to_slice_num(THROTTLE_R));
 }
 
-void initialize() {
+void initialize()
+{
     stdio_init_all();
 
     // led
@@ -107,6 +123,10 @@ void initialize() {
     gpio_set_dir(BRAKE_DIR_GPIO, GPIO_OUT);
     gpio_put(BRAKE_DIR_GPIO, 0);
 
+    gpio_init(BRAKE_SENSOR);
+    gpio_set_dir(BRAKE_SENSOR, GPIO_IN);
+    gpio_pull_down(BRAKE_SENSOR); // Default low
+
     // throttle
     gpio_set_function(THROTTLE_L, GPIO_FUNC_PWM);
     THROTTLE_L_SLICE = pwm_gpio_to_slice_num(THROTTLE_L);
@@ -114,7 +134,7 @@ void initialize() {
     pwm_set_wrap(THROTTLE_L_SLICE, WRAPVAL);
     pwm_clear_irq(THROTTLE_L_SLICE);
     pwm_set_irq_enabled(THROTTLE_L_SLICE, true);
-    
+
     gpio_set_function(THROTTLE_R, GPIO_FUNC_PWM);
     THROTTLE_R_SLICE = pwm_gpio_to_slice_num(THROTTLE_R);
     pwm_set_clkdiv(THROTTLE_R_SLICE, CLKDIV);
@@ -123,11 +143,10 @@ void initialize() {
     pwm_set_irq_enabled(THROTTLE_R_SLICE, true);
 
     // enable pwm
-    pwm_set_mask_enabled(   (1u << BRAKE_SLICE) | 
-                            (1u << STEER_SLICE) | 
-                            (1u << THROTTLE_L_SLICE) | 
-                            (1u << THROTTLE_R_SLICE)
-                        );
+    pwm_set_mask_enabled((1u << BRAKE_SLICE) |
+                         (1u << STEER_SLICE) |
+                         (1u << THROTTLE_L_SLICE) |
+                         (1u << THROTTLE_R_SLICE));
     irq_set_exclusive_handler(PWM_IRQ_WRAP, on_pwm_wrap);
     irq_set_enabled(PWM_IRQ_WRAP, true);
 
@@ -137,22 +156,25 @@ void initialize() {
     gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 }
 
-float constrain(float x, float min, float max) {
+float constrain(float x, float min, float max)
+{
     float value = x;
     value = (value > max ? max : value);
     value = (value < min ? min : value);
     return value;
 }
 
-void writePercentSteer(float value) {
+void writePercentSteer(float value)
+{
     float percent = constrain(value, -1, 1);
     int direction = (percent < 0); // set direction pin to 0 for positive / clockwise
     gpio_put(STEER_DIR_GPIO, direction);
 
-    if (steer_position > STEER_MAX_POSITION || steer_position < STEER_MIN_POSITION) {
+    if (steer_position > STEER_MAX_POSITION || steer_position < STEER_MIN_POSITION)
+    {
         percent = 0;
     }
-    
+
     percent = (percent > 0 ? percent : -percent);
     float STEER_CLKDIV = STEER_CLKDIV_MAX - (STEER_CLKDIV_MAX - STEER_CLKDIV_MIN) * percent;
     float level = (percent > 0.08) ? 0.5 * WRAPVAL : 0;
@@ -160,11 +182,12 @@ void writePercentSteer(float value) {
     pwm_set_chan_level(STEER_SLICE, PWM_CHAN_B, level);
 }
 
-void writePercentBrake(float value) {
+void writePercentBrake(float value)
+{
     float percent = constrain(value, -1, 1);
     int direction = (percent > 0); // set direction pin to 0 for positive / clockwise
     gpio_put(BRAKE_DIR_GPIO, direction);
-    
+
     percent = (percent > 0 ? percent : -percent);
     float BRAKE_CLKDIV = BRAKE_CLKDIV_MAX - (BRAKE_CLKDIV_MAX - BRAKE_CLKDIV_MIN) * percent;
     float level = (percent > 0.08) ? 0.5 * WRAPVAL : 0;
@@ -172,34 +195,42 @@ void writePercentBrake(float value) {
     pwm_set_chan_level(BRAKE_SLICE, PWM_CHAN_B, level);
 }
 
-float calculate(float kP, int setpoint, int position) {
+float calculate(float kP, int setpoint, int position)
+{
     if (abs(setpoint - position) > 50)
         return kP * (position - setpoint);
     else
         return 0;
 }
 
-float map(float x, float in_min, float in_max, float out_min, float out_max) {
+float map(float x, float in_min, float in_max, float out_min, float out_max)
+{
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-void core1_entry() {
-    while (true) {
+void core1_entry()
+{
+    while (true)
+    {
         char buffer[100];
         int index = 0;
         char curr;
 
-        if (uart_is_readable(UART_ID)) {
+        if (uart_is_readable(UART_ID))
+        {
             curr = uart_getc(uart0);
 
-            if (curr != '(') {
+            if (curr != '(')
+            {
                 continue;
             }
 
             memset(buffer, 0, sizeof(buffer));
 
-            while (curr != ')' && index < 100) {
-                if (uart_is_readable(UART_ID)) {
+            while (curr != ')' && index < 100)
+            {
+                if (uart_is_readable(UART_ID))
+                {
                     curr = uart_getc(uart0);
                     buffer[index++] = curr;
                 }
@@ -208,7 +239,8 @@ void core1_entry() {
             buffer[index] = '\0';
 
             float steer_, brake_, throttle_ = 0;
-            if (sscanf(buffer, "%f,%f,%f", &steer_, &brake_, &throttle_) == 3) {
+            if (sscanf(buffer, "%f,%f,%f", &steer_, &brake_, &throttle_) == 3)
+            {
                 steer = steer_;
                 brake = brake_;
                 throttle = throttle_;
@@ -217,7 +249,8 @@ void core1_entry() {
     }
 }
 
-void writePercentThrottle(float value) {
+void writePercentThrottle(float value)
+{
     float percent = constrain(value, 0, 1);
     float delta_time_us = time_us_32() - last_time_us;
     last_time_us += delta_time_us;
@@ -233,7 +266,8 @@ void writePercentThrottle(float value) {
     pwm_set_chan_level(THROTTLE_R_SLICE, PWM_CHAN_B, (int)(percent * WRAPVAL));
 }
 
-void read() {
+void read()
+{
     adc_select_input(2);
     steer_position = adc_read();
 
@@ -241,26 +275,32 @@ void read() {
     brake_position = adc_read();
 }
 
-void step() {
+void step()
+{
     gpio_put(BRAKE_GPIO, 1);
     sleep_ms(1000);
     gpio_put(BRAKE_GPIO, 0);
 }
 
-int main() {
+int main()
+{
     initialize();
     multicore_launch_core1(core1_entry);
     int iters = 0;
 
-    while (true) {        
+    while (true)
+    {
+        // Read digital brake sensor
+        int brake_sensor = gpio_get(BRAKE_SENSOR);
+
         read();
 
-        int steer_setpoint = (int) map(steer, -1.0, 1.0, STEER_MIN_POSITION, STEER_MAX_POSITION);
+        int steer_setpoint = (int)map(steer, -1.0, 1.0, STEER_MIN_POSITION, STEER_MAX_POSITION);
         float steer_output = calculate(0.0003, steer_setpoint, steer_position);
         writePercentSteer(steer_output);
 
         writePercentBrake(brake);
-        
+
         // writePercentThrottle(throttle);
 
         // if (throttle > 0 && last_throttle == 0) {
@@ -268,14 +308,17 @@ int main() {
         // }
         // last_throttle == throttle;
 
-        if (iters > 1000) {
-            // printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
+        if (iters > 1000)
+        {
+            printf("Steer Position: %d\tSteer Setpoint: %d\tSteer Output: %f\n", steer_position, steer_setpoint, steer_output);
             // printf("Steer Position: %d\tSteer Output: %f\n", adc_read(), steer_output);
             // printf("Steer Position: %d \n", adc_read());
             // printf("Throttle: %f\n", throttle);
-            printf("Brake: %f\n", brake);
+            // printf("%d\n", brake_moved_steps);
             iters = 0;
-        } else {
+        }
+        else
+        {
             iters += 1;
         }
     }
